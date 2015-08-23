@@ -8,6 +8,6 @@
 
 ![easy_install](images/easy_install.png)
 
-##A screen shot of what it looks like to write code in your preferred Python IDE and a screenshot of output of your okok.py test
+##Preferred Python IDE and output of okok.py test
 
 ![output](images/okok.png)
