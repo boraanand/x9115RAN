@@ -3,9 +3,26 @@ import math
 from swampy.TurtleWorld import *
 
 def main():
-    world = TurtleWorld()    
+    world = TurtleWorld() 
     bob = Turtle()
-    bob.delay = 0.001
+    bob.delay = 0.0001
+    
+    #draw flowers
+    draw_flower(bob, 7,100,60)
+    shift(bob,200)
+    draw_flower(bob, 10,80,80)
+    shift(bob,200)
+    draw_flower(bob, 25,400,14)
+
+    pu(bob)
+    rt(bob, 90)
+    fd(bob, 200)
+    rt(bob, 90)
+    fd(bob, 400)
+    rt(bob, 180)
+    pd(bob)
+
+    #draw polygons   
     polygon_with_radius_line(bob, 5, 80)  
     pu(bob)
     fd(bob, 200)
@@ -17,6 +34,12 @@ def main():
     polygon_with_radius_line(bob, 7, 80) 
     wait_for_user()
 
+def draw_flower(t, n,length,deg):
+    for i in range(n):
+        for j in range(2):
+            arc(t,length,deg)
+            lt(t,180-deg)
+        lt(t,360.0/n)
 
 def polygon_with_radius_line(t, n, radius):
     """ Draw a polygon and its radius line
@@ -36,6 +59,11 @@ def polygon_with_radius_line(t, n, radius):
         rt(t, 180 - angle)
         fd(t, radius)
         rt(t, 180)
+
+def shift(t, length):
+    pu(t)
+    fd(t,length)
+    pd(t)
 
 def polygon(t, n, radius):
     """ Draw a polygon
