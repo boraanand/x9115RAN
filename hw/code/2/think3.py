@@ -1,6 +1,5 @@
 """
 **Exercise 3.2 ( 3.1 returns expected errro)*****
-
 """
 def repeat_lyrics():
     print_lyrics()
@@ -12,9 +11,9 @@ def print_lyrics():
 
 repeat_lyrics()
 
+
 """
 *****Exercise 3.3**********************
-
 """
 def right_justify(str):
     num_spaces = 70 - len(str)
@@ -26,7 +25,8 @@ right_justify('allen')
 
 
 """
-******Exercise 3.4*********************"""
+******Exercise 3.4*********************
+"""
 def do_twice(f,num):
     f(num)
     f(num)
@@ -49,7 +49,6 @@ do_four(print_twice,'spam')
 
 """
 ******Exercise 3.5***********************
-
 """
 def horizontal():
     print '+','-','-','-','-',
@@ -82,7 +81,6 @@ def print_grid_base(col):
     print_horizontal_lines(col)
     print_vertical_lines(col)
     print_last_vertical_line(col)
-
 	
 "Function to print the grid(row,col)"
 def print_full_grid(row,col):
