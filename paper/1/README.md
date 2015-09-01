@@ -21,13 +21,18 @@ Is a way of search in which we make changes to one input variable by keeping all
 
 iii: Artifacts:
 ---------------
-#### iii1: Motivational statements
+#### iii1. Motivational statements:
+Manual testing of the Web application is tedious but very important task. Search based Software engineering can help to generate test cases automatically. Although search based software engineering is used for test generation of traditional standalone application, web applications presents us with its own challenges. There are 4 main challenges faced for automatic test generation in web applications - 
+* **No consistent interface definition in the web page:** There is no specification regarding how many i/p the program accepts or what are their type.
+* **Dynamic typing:** No information is present regarding data type of inputs
+* **Identification of top level pages of application:** for user simulation of the applicattion, we have to know the start page of the web application
+* **Dynamic includes of other pages:** The include name can be decided on runtime.
 
-#### iii2:
+#### iii2. Hypothesis:
 
-#### iii3: 
+#### iii3. Statistical tests: 
 
-#### iii4:
+#### iii4. Informative visualizations:
 
 iv: Improvements:
 -------------
