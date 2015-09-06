@@ -21,9 +21,11 @@ if __name__ == '__main__':
     print('#'*50)
     print('Sort the list of class based on age:')
     employee_list = [Employee('Nirmesh', 21), Employee('Anand', 20), Employee('Ravi', 23)]
+    
     print('-'*30)
     print('Unsorted Employee list:')
     print(*employee_list, sep='\n')
+    
     print('-'*30)
     print('Sorted list:')
     print(*sorted(employee_list), sep='\n')
