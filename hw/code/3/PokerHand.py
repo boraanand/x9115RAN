@@ -125,24 +125,53 @@ class PokerHand(Hand):
                     return True
         return False
 
+    
+    def classify(self):
+        if self.has_straightflush():
+            self.label = 'straightflush'
+        elif self.has_fourofakind():
+            self.label = 'fourofakind'
+        elif self.has_fullhouse():
+            self.label = 'fullhouse'
+        elif self.has_flush():
+            self.label = 'flush'
+        elif self.has_straight():
+            self.label = 'straight'
+        elif self.has_threeofakind():
+            self.label = 'threeofakind'
+        elif self.has_twopairs():
+            self.label = 'twopairs'
+        elif self.has_pair():
+            self.label = 'pair'
+        else:
+            self.label = 'highcard'
+
 if __name__ == '__main__':
     # make a deck
-    deck = Deck()
-    deck.shuffle()
+    handresults = {}
 
-    # deal the cards and classify the hands
-    for i in range(7):
-        hand = PokerHand()
-        deck.move_cards(hand, 7)
-        hand.sort()
-        print hand
-        print "Has flush:",hand.has_flush()
-        print "Has pair:",hand.has_pair()
-        print "Has two pairs:",hand.has_twopairs()
-        print "Has 3 of a kind:",hand.has_threeofakind()
-        print "Has straight:",hand.has_straight()
-        print "Has full house:",hand.has_fullhouse()
-        print "Has 4 of a kind:",hand.has_fourofakind()
-        print "Has straight flush:",hand.has_straightflush()
-        print ''
+    for _ in range(1000000):    
+        deck = Deck()
+        deck.shuffle()
+    
+    
+        # deal the cards and classify the hands
+        for i in range(7):
+            hand = PokerHand()
+            deck.move_cards(hand, 7)
+            hand.sort()
+#             print hand
+#             print "Has flush:",hand.has_flush()
+#             print "Has pair:",hand.has_pair()
+#             print "Has two pairs:",hand.has_twopairs()
+#             print "Has 3 of a kind:",hand.has_threeofakind()
+#             print "Has straight:",hand.has_straight()
+#             print "Has full house:",hand.has_fullhouse()
+#             print "Has 4 of a kind:",hand.has_fourofakind()
+#             print "Has straight flush:",hand.has_straightflush()
+#             print ''
+            hand.classify()
+            handresults[hand.label] = handresults.get(hand.label, 0) + 1
+            
+    print handresults
 
