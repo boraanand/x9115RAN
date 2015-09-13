@@ -25,6 +25,8 @@ Zhendong Su
 University of California, Davis
 su@cs.ucdavis.edu
 
+[Paper](http://dl.acm.org/citation.cfm?id=1390630.1390661&coll=DL&dl=GUIDE&CFID=545413162&CFTOKEN=17813109)
+
 ## (ii) Keywords
   * (ii1)**Automatic test generation** : It the process of programmatically creating a set of data for testing the adequacy of new or revised software applications.
   * (ii2)**Concolic testing** : It is a software verification technique that performs symbolic execution, a classical technique that treats program variables as symbolic variables, along a concrete execution (testing on particular inputs) path. 
