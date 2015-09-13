@@ -37,6 +37,10 @@ su@cs.ucdavis.edu
 ## (iii) Artifacts
 * (iii1) **Motivation** : Manual testing requires extensive human effort, which comes at significant cost. Within the domain of automated web application testing, this paper focuses on automatic test case generation, automatic test input generation by modelling string operations, and checking string values against existing policies to prevent SQL injection attacks. Paper discusses techniques and coding examples for PHP applications.
 * (iii2) **2.	Tutorial materials** : Paper has focused extensively on PHP web application, has covered several coding examples to help the reader get started upon their approach. The code takes a user ID, and attempts to authenticate the user to perform other actions. If the user’s ID does not appear in the database, the program exits with an error message.
+
+Sample code in paper:
+![code][images/code.png]
+
 * (iii3) **3.	Data** : Several reusable projects are discussed, which we have submitted  at http://openscience.us/repo/contribute/donate.
 
     a.	**Mantis** 1.0.0rc2, is an open source bug tracking system, similar to Bugzilla
