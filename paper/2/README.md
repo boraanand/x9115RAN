@@ -35,6 +35,7 @@ su@cs.ucdavis.edu
 * (iii1) **Motivation** : Manual testing requires extensive human effort, which comes at significant cost. Within the domain of automated web application testing, this paper focuses on automatic test case generation, automatic test input generation by modelling string operations, and checking string values against existing policies to prevent SQL injection attacks. Paper discusses techniques and coding examples for PHP applications.
 * (iii2) **2.	Tutorial materials** : Paper has focused extensively on PHP web application, has covered several coding examples to help the reader get started upon their approach. The code takes a user ID, and attempts to authenticate the user to perform other actions. If the user’s ID does not appear in the database, the program exits with an error message.
 * (iii3) **3.	Data** : Several reusable projects are discussed, which we have submitted  at http://openscience.us/repo/contribute/donate.
+
     a.	**Mantis** 1.0.0rc2, is an open source bug tracking system, similar to Bugzilla
 
     b.	**Mambo** 4.5.3, is an open source content management system.
@@ -61,7 +62,8 @@ su@cs.ucdavis.edu
 
         3.	M. Costa, M. Castro, L. Zhou, L. Zhang, and M. Peinado. Bouncer: securing software by blocking bad input. In Proceedings of the 21st ACM Symposium on Operating Systems Principles 2007 (SOSP 2007), pages 117–130, 2007.
 
-    * **Web Application Testing**: Previous work on web application testing has focused on static webpages and the loosely structured control flow between them: 
+    iii. **Web Application Testing**: Previous work on web application testing has focused on static webpages and the loosely
+    structured control flow between them: 
     
         1.	F. Ricca and P. Tonella. Analysis and testing of web applications. In Proceedings of the 23rd International Conference on Software Engineering (ICSE 2001), pages 25–34, 2001.
     
