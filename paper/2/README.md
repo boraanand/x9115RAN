@@ -62,15 +62,15 @@ su@cs.ucdavis.edu
         3.	M. Costa, M. Castro, L. Zhou, L. Zhang, and M. Peinado. Bouncer: securing software by blocking bad input. In Proceedings of the 21st ACM Symposium on Operating Systems Principles 2007 (SOSP 2007), pages 117–130, 2007.
 
    * **Web Application Testing**: Previous work on web application testing has focused on static webpages and the loosely structured control flow between them: 
-      
+    
         1.	F. Ricca and P. Tonella. Analysis and testing of web applications. In Proceedings of the 23rd International Conference on Software Engineering (ICSE 2001), pages 25–34, 2001.
-      
+    
         2.	D. Kung, C. H. Liu, and P. Hsia. An object-oriented web test model for testing web applications. In 24th International Computer Software and Applications Conference (COMPSAC 2000), pages 537–542, 2000.
 
    * **Previous work on PHP application testing**:
-   
+    
         1.	N. Jovanovic, C. Kruegel, and E. Kirda. Pixy: A static analysis tool for detecting web application vulnerabilities (short paper). In 2006 IEEE Symposium on Security and Privacy (S&P 2006), pages 258–263, 2006.
-      
+    
         2.	Y. Xie and A. Aiken. Static detection of security vulnerabilities in scripting languages. In Proceedings of the USENIX Security Symposium, 2006.
 
 ## (iv) Improvizations:
