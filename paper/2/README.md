@@ -43,7 +43,7 @@ su@cs.ucdavis.edu
 
     d.	**PHC** is an open source PHP front-end compiler.
 * (iii4) **Related Work** : 
-* a.	**Test Input Generation**: 
+   * a.	**Test Input Generation**: 
      i.	Generate random values as inputs:
         1.	C. Cadar, V. Ganesh, P. M. Pawlowski, D. L. Dill, and D. R. Engler. Exe: automatically generating inputs of death. In Proceedings of the 13th ACM Conference on Computer and Communications Security (CCS 2006), pages 322–335, 2006.
 
@@ -58,13 +58,13 @@ su@cs.ucdavis.edu
 
         3.	M. Costa, M. Castro, L. Zhou, L. Zhang, and M. Peinado. Bouncer: securing software by blocking bad input. In Proceedings of the 21st ACM Symposium on Operating Systems Principles 2007 (SOSP 2007), pages 117–130, 2007.
 
-* b.	Web Application Testing: Previous work on web application testing has focused on static webpages and the loosely structured control flow between them: 
+   * b.	Web Application Testing: Previous work on web application testing has focused on static webpages and the loosely structured control flow between them: 
 
     i.	F. Ricca and P. Tonella. Analysis and testing of web applications. In Proceedings of the 23rd International Conference on Software Engineering (ICSE 2001), pages 25–34, 2001.
 
    ii.	D. Kung, C. H. Liu, and P. Hsia. An object-oriented web test model for testing web applications. In 24th International Computer Software and Applications Conference (COMPSAC 2000), pages 537–542, 2000.
 
-* c.	Previous work on PHP application testing:
+   * c.	Previous work on PHP application testing:
    
    i.	N. Jovanovic, C. Kruegel, and E. Kirda. Pixy: A static analysis tool for detecting web application vulnerabilities (short paper). In 2006 IEEE Symposium on Security and Privacy (S&P 2006), pages 258–263, 2006.
 
