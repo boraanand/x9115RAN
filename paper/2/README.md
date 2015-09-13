@@ -73,6 +73,8 @@ su@cs.ucdavis.edu
     
         2.	Y. Xie and A. Aiken. Static detection of security vulnerabilities in scripting languages. In Proceedings of the USENIX Security Symposium, 2006.
 
+        3.	M. Costa, M. Castro, L. Zhou, L. Zhang, and M. Peinado. Bouncer: securing software by blocking bad input. In Proceedings of the 21st ACM Symposium on Operating Systems Principles 2007 (SOSP 2007), pages 117–130, 2007.
+
 ## (iv) Improvizations:
   * (iv1) 1.	Constraint resolution algorithm discussed in the paper could be enhanced to include multivariate constraints in some cases.
   * (iv2) 2.	Current approach suggested in the paper is not fully automated. The web page must be manually loaded (e.g., by clicking “go”), the analyzer must be manually invoked, and analyzer writes the next inputs to a file, so they must be manually provided to the URL. An additional step of automation could be handy to overcome this drawback.
