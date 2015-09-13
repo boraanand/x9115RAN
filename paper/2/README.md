@@ -1,5 +1,6 @@
 # Summary 
-## (i) Reference : Dynamic Test Input Generation for Web Applications
+## (i) Reference : 
+## Dynamic Test Input Generation for Web Applications
 Gary Wassermann
 University of California, Davis
 wassermg@cs.ucdavis.edu
