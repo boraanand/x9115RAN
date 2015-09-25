@@ -1,5 +1,6 @@
 from __future__ import print_function, division
 import random as r
+import math
 
 class Schaffer():
   def __init__(i, x, min_, max_): 
@@ -12,19 +13,21 @@ class Schaffer():
   def f2(i): return (i.x-2)**2
 
   def E(i):
-    return (f1() + f2() - i.min_)/ (i.max_ - i.min_)
+    return (i.f1() + i.f2() - i.min_)/ (i.max_ - i.min_)
 
   def neighbor(i):
-    return r.randrange(i.min_, i.max_)
+    return Schaffer(r.randrange(i.min_, i.max_), i.min_, i.max_)
 
 def P(old,new,t):
-  return e**((old-new)/t)
+  return math.exp((old-new)/t)
 
 def sa(x0, min_, max_):
   s0 = Schaffer(x0, min_, max_)
   s = s0; e = s.E()                 # Initial state, energy.
   sb = s; eb = e                    # Initial "best" solution
-  k = 0                             # Energy evaluation count.
+  k = 1                             # Energy evaluation count.
+  kmax = 1000
+  emax = -2.0
 
   while k < kmax and e > emax:      # While time remains & not good enough:
     sn = s.neighbor()               # Pick some neighbor.
@@ -36,7 +39,7 @@ def sa(x0, min_, max_):
     if en < e:                      # Should we jump to better?
       s = sn; e = en                # Yes!
       print('+', end = '')
-    elif P(e, en, k/kmax) < rand(): # Should we jump to worse?
+    elif P(e, en, k/kmax) < r.random(): # Should we jump to worse?
       s = sn; e = en                # Yes, change state.
       print('?', end='')
     
@@ -46,3 +49,6 @@ def sa(x0, min_, max_):
     if k % 50 == 0: print("\n",sb)
   
   return sb
+
+if __name__ == '__main__':
+  sa(12, -1000, 1000)
