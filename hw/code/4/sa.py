@@ -17,10 +17,11 @@ class Schaffer():
   def neighbor(i):
     return r.randrange(i.min_, i.max_)
 
+def P(old,new,t):
+  return e**((old-new)/t)
+
 def sa(x0, min_, max_):
-
   s0 = Schaffer(x0, min_, max_)
-
   s = s0; e = s.E()                 # Initial state, energy.
   sb = s; eb = e                    # Initial "best" solution
   k = 0                             # Energy evaluation count.
@@ -36,11 +37,11 @@ def sa(x0, min_, max_):
       s = sn; e = en                # Yes!
       print('+', end = '')
     elif P(e, en, k/kmax) < rand(): # Should we jump to worse?
-      s = sn; e = en            #    Yes, change state.
+      s = sn; e = en                # Yes, change state.
       print('?', end='')
     
     print('.', end='')
-    k +=  1                        #   One more evaluation done    
+    k +=  1                         # One more evaluation done    
     
     if k % 50 == 0: print("\n",sb)
   
