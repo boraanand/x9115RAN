@@ -17,11 +17,11 @@ class Schaffer():
         return (i.f1() + i.f2() - Emin) / (Emax - Emin)
 
     def neighbor(i):  
-        randomNu = r.randint(-100000, 2 * i.x - (-100000))
+        randomNu = r.randint(-100000, 2 * i.x - (-100000))  # Select neighbour a random in in a radius from current x to min.
         return Schaffer(randomNu)
 
 def P(old, new, t):
-    return math.exp((old - new) / t)
+    return math.exp(float(old - new) / float(t))
 
 def sa(x0):
     s0 = Schaffer(x0)
@@ -29,9 +29,11 @@ def sa(x0):
     sb = s; eb = e  # Initial "best" solution
     k = 1  # Energy evaluation count.
     kmax = 1000
-    emax = -2.0
 
     while k < kmax :  # and e > emax While time remains & not good enough:
+        if k == 1 or k % 50 == 0: 
+            print ("%e" % sb.E(), end=' ') 
+
         sn = s.neighbor()  # Pick some neighbor.
         en = sn.E()  # Compute its energy.
 #         global Emin
@@ -39,22 +41,21 @@ def sa(x0):
         if en < eb:  # Is this a new best?
             sb = sn; eb = en  # Yes, save it.
             print('!', end='')
-
-        if en < e:  # Should we jump to better?
+        elif en < e:  # Should we jump to better?
             s = sn; e = en  # Yes!
             print('+', end='')
-        elif P(e, en, float(1 - (k / kmax))) < float((r.randint(0, 100)) / 100):  # Should we jump to worse?
+        elif P(e, en, float(30 * (k / kmax))) < float((r.randint(0, 100)) / 100):  # Should we jump to worse?
             s = sn; e = en  # Yes, change state.
             print('?', end='')
-    
-        print('.', end='')
+        else:
+            print('.', end='')
         k += 1  # One more evaluation done    
     
         if k % 50 == 0: 
-            print (sb.E(), sb.x) 
-#           print("\n")
-  
+            print ('') 
+
     return sb
 
 if __name__ == '__main__':
-    sa(r.randint(-100000, 100000))
+    best = sa(r.randint(-100000, 100000))
+    print ('\nBest Energy = ', best.E(), ' at x = ', best.x)
