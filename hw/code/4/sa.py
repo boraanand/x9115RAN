@@ -25,31 +25,31 @@ def P(old, new, t):
 
 def sa(x0):
     s0 = Schaffer(x0)
-    s = s0; e = s.E()  # Initial state, energy.
-    sb = s; eb = e  # Initial "best" solution
-    k = 1  # Energy evaluation count.
+    s = s0; e = s.E()                # Initial state, energy.
+    sb = s; eb = e                   # Initial "best" solution
+    k = 1                            # Energy evaluation count.
     kmax = 1000
 
-    while k < kmax :  # and e > emax While time remains & not good enough:
+    while k < kmax :                 # and e > emax While time remains & not good enough:
         if k == 1 or k % 50 == 0: 
             print ("%e" % sb.E(), end=' ') 
 
-        sn = s.neighbor()  # Pick some neighbor.
-        en = sn.E()  # Compute its energy.
+        sn = s.neighbor()            # Pick some neighbor.
+        en = sn.E()                  # Compute its energy.
 #         global Emin
 #         Emin = min(Emin, en)
-        if en < eb:  # Is this a new best?
-            sb = sn; eb = en  # Yes, save it.
+        if en < eb:                  # Is this a new best?
+            sb = sn; eb = en         # Yes, save it.
             print('!', end='')
-        elif en < e:  # Should we jump to better?
-            s = sn; e = en  # Yes!
+        elif en < e:                 # Should we jump to better?
+            s = sn; e = en           # Yes!
             print('+', end='')
         elif P(e, en, float(30 * (k / kmax))) < float((r.randint(0, 100)) / 100):  # Should we jump to worse?
-            s = sn; e = en  # Yes, change state.
+            s = sn; e = en           # Yes, change state.
             print('?', end='')
         else:
             print('.', end='')
-        k += 1  # One more evaluation done    
+        k += 1                       # One more evaluation done    
     
         if k % 50 == 0: 
             print ('') 
