@@ -44,7 +44,7 @@ def sa(x0):
         elif en < e:                 # Should we jump to better?
             s = sn; e = en           # Yes!
             print('+', end='')
-        elif P(e, en, float(30 * (k / kmax))) < float((r.randint(0, 100)) / 100):  # Should we jump to worse?
+        elif P(e, en, float(30 * (k / kmax))) < r.random():  # Should we jump to worse?
             s = sn; e = en           # Yes, change state.
             print('?', end='')
         else:
