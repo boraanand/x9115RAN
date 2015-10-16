@@ -24,11 +24,11 @@ Pseudo-code in paper:
 
 ![code](images/hill.png)
 
-* (iii3) **3.	Data** : Several reusable projects are discussed, which we have submitted  at http://openscience.us/repo/contribute/donate.
+* (iii3) **3.	Data** : Two reusable projects are discussed, which we have submitted  at http://openscience.us/repo/contribute/donate.
 
-    a.	**Mantis** 1.0.0rc2, is an open source bug tracking system, similar to Bugzilla
+    a.	**Tudu Lists** Tudu Lists is an Open Source, on-line application for managing todo lists
 
-    b.	**Mambo** 4.5.3, is an open source content management system.
+    b.	**Oryx3** Oryx is an academic Open Source project that allows you to add your prototypes to a powerful process modeling infrastructure.
 
     c.	**Utopia News Pro** 1.3.0, is a news management system.
 
