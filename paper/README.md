@@ -21,5 +21,8 @@ In GECCO Comp '14 Proceedings of the Companion Publication of the 2014 Annual Co
 
 **Citations**: 142
 
-Alessandro Marchetto and Paolo Tonella. Search-based testing of Ajax
+2. Alessandro Marchetto and Paolo Tonella. Search-based testing of Ajax
 web applications. In SSBSE ’09, pages 3–12, 2009
+
+**Citations**: 34
+
