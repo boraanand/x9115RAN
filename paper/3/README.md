@@ -39,11 +39,19 @@ A key insight in this work is that the original program can act as an oracle for
 #### iii4: Patterns:
 
 - The authors provides a great insight into the role of Experimentation vs Empirical results in relation to computer science. Experimentation is something that scientists do "under the laboratoryconditions" in order to observe casuwe and effect of different quantites. On the other hand, epirical results are any statement about the world that is related to observation or experience.
-- In order to make experimentations in software engineering, people often use syntheic data. Author makes a cautious note that such data should be used only for finding answers that are not clear from real data. It should not be a "substitute" , rather it should be "augmentation" to real data. In empirical software engineering we need both laboratory controlled data and data based on real world empirical experimentation, not one or the other. 
+- In order to make experimentations in software engineering, people often use syntheic data. Author makes a cautious note that such data should be used only for finding answers that are not clear from real data. It should not be a "substitute" , rather it should be "augmentation" to real data. In empirical software engineering we need both laboratory controlled data and data based on real world empirical experimentation, not one or the other.
+
+We can clearly see that these insights can be used for other researches as well. Hence this falls under "pattern" section.
 
 iv: Improvements:
 -----------------
-iv1:
-iv2:
-iv3:
+#### iv1:
+No concrete examples present in paper to support the authors claims about Adaptive Automated Software Engineering. Although the purpose of the paper is to introduce this new idea that can be worked upon by other researchers in the future, it would have been nice to give some pointers on the requred work done by the authors.
+
+#### iv2:
+Not clear how the author plans to acheive hypothesis. Author provides details about the work done so far, and related work.but there is no mention on techniques to cosolidate that work into hollistic system. This question is somewhat kept open ended by authors.
+
+#### iv3:
+No examples of synthetic data sets provided. The author has dedicated 2 sections of paper on the discussion of various propertis of synthetic data sets for Experimentations in software engineering.But there are no example data sets provided for that. No supporting visuals would have been nice too.
+
 
