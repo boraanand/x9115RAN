@@ -2,8 +2,11 @@
 ## (i) Reference : 
 ## Search-Based Testing of AjaxWeb Applications
 Alessandro Marchetto and Paolo Tonella
+
 Fondazione Bruno Kessler - IRST
-marchetto|tonella@fbk.eu
+
+marchetto | tonella @ fbk . eu
+
 
 [Paper](https://scholar.google.com/scholar?q=Search-Based+Testing+of+AjaxWeb+Applications&btnG=&hl=en&as_sdt=0%2C34)
 
