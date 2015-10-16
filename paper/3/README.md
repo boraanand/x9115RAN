@@ -38,7 +38,8 @@ A key insight in this work is that the original program can act as an oracle for
 
 #### iii4: Patterns:
 
-The authors provides a great insight into the role of Experimentation vs Empirical results in relation to computer science.
+- The authors provides a great insight into the role of Experimentation vs Empirical results in relation to computer science. Experimentation is something that scientists do "under the laboratoryconditions" in order to observe casuwe and effect of different quantites. On the other hand, epirical results are any statement about the world that is related to observation or experience.
+- In order to make experimentations in software engineering, people often use syntheic data. Author makes a cautious note that such data should be used only for finding answers that are not clear from real data. It should not be a "substitute" , rather it should be "augmentation" to real data. In empirical software engineering we need both laboratory controlled data and data based on real world empirical experimentation, not one or the other. 
 
 iv: Improvements:
 -----------------
