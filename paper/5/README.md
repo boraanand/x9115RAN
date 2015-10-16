@@ -17,12 +17,12 @@ marchetto | tonella @ fbk . eu
   * (ii4)**Fitness function**  : A fitness function is a particular type of objective function that is used to summarise, as a single figure of merit, how close a given design solution is to achieving the set aims.
 
 ## (iii) Artifacts
-* (iii1) **Motivation** : Manual testing requires extensive human effort, which comes at significant cost. Within the domain of automated web application testing, this paper focuses on automatic test case generation, automatic test input generation by modelling string operations, and checking string values against existing policies to prevent SQL injection attacks. Paper discusses techniques and coding examples for PHP applications.
-* (iii2) **2.	Tutorial materials** : Paper has focused extensively on PHP web application, has covered several coding examples to help the reader get started upon their approach. The code takes a user ID, and attempts to authenticate the user to perform other actions. If the user’s ID does not appear in the database, the program exits with an error message.
+* (iii1) **Motivation** : Author's previous work investigated a state-based testing approach, based on semantically interacting events. The main drawback of this approach is that exhaustive generation of semantically interacting event sequences limits quite severely the maximum achievable length, while longer sequences would have higher fault exposing capability. This paper investigates a search-based algorithm for the exploration of the huge space of long interaction sequences, in order to select those that are most promising, based on a measure of test case diversity, on the hill climbing algorithm. 
+* (iii2) **2.	Tutorial materials** : Paper proposes a search-based test case derivation technique for Ajax (called HILL), based on the hill climbing algorithm. Paper provides pseudo-code of the algorithm used by HILL to generate the sequences of semantically interacting events composing the final testing suite. 
 
-Sample code in paper:
+Pseudo-code in paper:
 
-![code](images/code.png)
+![code](images/hill.png)
 
 * (iii3) **3.	Data** : Several reusable projects are discussed, which we have submitted  at http://openscience.us/repo/contribute/donate.
 
