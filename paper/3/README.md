@@ -36,7 +36,9 @@ The author provides a good introduction on the all the relevent work done so far
 A key insight in this work is that the original program can act as an oracle for the functional requirements of the system to be re-evolved in this way.
 3. **Trading Functional and non-functional requirements:** Finding balance between functional and non functional requirements of software. How should we decide if we ned to sacrifice the functional requirmenets for performance benifits. Author mentions the results acheived in pseudo random generator.
 
-#### iii4: Future work:
+#### iii4: Patterns:
+
+The authors provides a great insight into the role of Experimentation vs Empirical results in relation to computer science.
 
 iv: Improvements:
 -----------------
