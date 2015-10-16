@@ -23,7 +23,9 @@ iii: Artifacts:
 - Self-adaptivity has been a goal of software and systems engineering research for some time and author beleives that SBSE will allow to add some value to this grand challenge.
 
 #### ii2: Hypothesis: 
-The athor believes that usin Hyper heuristics seach, we can directly optimise the engineering material: the programs themselves. This means that the software itself will re-balance, re-configure, and even to redevelop itself as it operates.
+- The athor believes that usin Hyper heuristics seach, we can directly optimise the engineering material: the programs themselves. This means that the software itself will re-balance, re-configure, and even to redevelop itself as it operates.
+- Since we have acheived great results in tuning of parameters, re-design aspects of systems to fix bugs using genetic programming, migration to new platforms and languages and optimization of nonfunctional
+properties, All this work is early indication of potential for Dynamic Adaptive SBSE.
 
 #### ii3: 
 #### ii4: Future work:
