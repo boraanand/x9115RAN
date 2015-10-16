@@ -31,10 +31,10 @@ properties, All this work is early indication of potential for Dynamic Adaptive 
 #### iii3: Related Work:
 The author provides a good introduction on the all the relevent work done so far in the field of SBSE that might help us to get the motivation for developing autonomous softwares in the future. Specifically, the most important work is in the field of genetic programming. Following work has shown good potential :
 
-1. Bug fixing: The automated generattion of Bug Fix patches is already successfully implemented. Currently, this is used for temporary fix in the program till developer fixes the actual bug. Recently eveidences have found for the patches that can sustain long term in software.
-2. Migration: Evidence have been found that indicates that it is possible to evolve new code for completely different architectures and languages than those for which the original code was designed.
+1. **Bug fixing:** The automated generattion of Bug Fix patches is already successfully implemented. Currently, this is used for temporary fix in the program till developer fixes the actual bug. Recently eveidences have found for the patches that can sustain long term in software.
+2. **Migration:** Evidence have been found that indicates that it is possible to evolve new code for completely different architectures and languages than those for which the original code was designed.
 A key insight in this work is that the original program can act as an oracle for the functional requirements of the system to be re-evolved in this way.
-3. Trading Functional and non-functional requirements: Finding balance between functional and non functional requirements of software. How should we decide if we ned to sacrifice the functional requirmenets for performance benifits.
+3. **Trading Functional and non-functional requirements:** Finding balance between functional and non functional requirements of software. How should we decide if we ned to sacrifice the functional requirmenets for performance benifits. Author mentions the results acheived in pseudo random generator.
 
 #### iii4: Future work:
 
