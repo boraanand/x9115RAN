@@ -26,13 +26,10 @@ Pseudo-code in paper:
 
 * (iii3) **3.	Data** : Two reusable projects are discussed, which we have submitted  at http://openscience.us/repo/contribute/donate.
 
-    a.	**Tudu Lists** Tudu Lists is an Open Source, on-line application for managing todo lists
+    a.	**Tudu Lists** is an Open Source, on-line application for managing todo lists
 
-    b.	**Oryx3** Oryx is an academic Open Source project that allows you to add your prototypes to a powerful process modeling infrastructure.
+    b.	**Oryx3** is an academic Open Source project that allows you to add your prototypes to a powerful process modeling infrastructure.
 
-    c.	**Utopia News Pro** 1.3.0, is a news management system.
-
-    d.	**PHC** is an open source PHP front-end compiler.
 * (iii4) **Related Work** : 
 
     i.	Generate random values as inputs:
