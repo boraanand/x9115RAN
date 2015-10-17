@@ -43,8 +43,7 @@ on Software Engineering, Toronto, Ontario, Canada, May 12-19, pages 25–34, 200
     
         1.	C. D. Turner and D. J. Robson. The state-based testing of object-oriented programs. IEEE Conference on Software Maintenance (ICSM), September 1993.
       
-        2.	X. Yuan and A. M. Memon. Using GUI run-time state as feedback to generate test cases. In ICSE ’07: Proceedings of
-the 29th International Conference on Software Engineering, pages 396–405, Washington, DC, USA, May 23–25, 2007. IEEE Computer Society.
+        2.	X. Yuan and A. M. Memon. Using GUI run-time state as feedback to generate test cases. In ICSE ’07: Proceedings of the 29th International Conference on Software Engineering, pages 396–405, Washington, DC, USA, May 23–25, 2007. IEEE Computer Society.
 
         3.	A.Marchetto, P. Tonella, and F. Ricca. State-based testing of ajax web applications. In Proc. of IEEE International Con-ference on Software Testing (ICST), Lillehammer, Norway, April 2008.
 
