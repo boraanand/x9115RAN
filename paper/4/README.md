@@ -14,11 +14,13 @@ A methodology for using sbse for discovering and updating the algorithms for com
 GI is methodology where we directly apply sbse techniques on the source code. It treats software code as gentic material and tries to mutate it to improve the program for a given objective. These operations may for example
 consist of copying, deleting and swapping lines of code.
 
-#### ii5: Genetic Algorithm (GA): These are evolutionary algorithms used to solve optimization problems. Below are the two main steps:
+#### ii5: Genetic Algorithm (GA): 
+These are evolutionary algorithms used to solve optimization problems. Below are the two main steps:
 1. Initial generation of candidate solutions at random (tested against the objective function)
 2. Subsequent generations evolve from the 1st through selection, crossover and mutation.
 
-#### ii3: Genetic Programming (GP): Specialization of genetic algorithms where each individual is a computer program. Computer programs are represented as Abstract Syntax trees and these tree are mutated to generate new programs.
+#### ii3: Genetic Programming (GP): 
+Specialization of genetic algorithms where each individual is a computer program. Computer programs are represented as Abstract Syntax trees and these tree are mutated to generate new programs.
 
 
 
