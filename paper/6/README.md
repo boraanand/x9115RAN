@@ -1,12 +1,11 @@
 # Summary 
 ## (i) Reference : 
-## Search-Based Testing of AjaxWeb Applications
-Alessandro Marchetto and Paolo Tonella
+## Precise Interface Identification to Improve Testing and Analysis of Web Applications
+William G.J. Halfond, Saswat Anand, and Alessandro Orso
 
-Fondazione Bruno Kessler - IRST
+Georgia Institute of Technology
 
-marchetto | tonella @ fbk . eu
-
+{whalfond|saswat|orso} @ cc . gatech . edu
 
 [Paper](http://dl.acm.org/citation.cfm?id=1572305)
 [Download](http://www-bcf.usc.edu/~halfond/papers/halfond09issta.pdf)
