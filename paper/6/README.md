@@ -9,6 +9,7 @@ marchetto | tonella @ fbk . eu
 
 
 [Paper](http://dl.acm.org/citation.cfm?id=1572305)
+[Download](http://www-bcf.usc.edu/~halfond/papers/halfond09issta.pdf)
 
 ## (ii) Keywords
   * (ii1)**Ajax Applications** : Short for asynchronous JavaScript and XML. With Ajax, web applications can send data to and retrieve from a server asynchronously (in the background) without interfering with the display and behavior of the existing page. 
