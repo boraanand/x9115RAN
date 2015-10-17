@@ -11,24 +11,25 @@ Georgia Institute of Technology
 [Download](http://www-bcf.usc.edu/~halfond/papers/halfond09issta.pdf)
 
 ## (ii) Keywords
-  * (ii1)**Ajax Applications** : Short for asynchronous JavaScript and XML. With Ajax, web applications can send data to and retrieve from a server asynchronously (in the background) without interfering with the display and behavior of the existing page. 
-  * (ii2)**Finite State Machine (FSM)** : It is conceived as an abstract machine that can be in one of a finite number of states. The machine is in only one state at a time; the state it is in at any given time is called the current state. It can change from one state to another when initiated by a triggering event or condition; this is called a transition. A particular FSM is defined by a list of its states, and the triggering condition for each transition.
-  * (ii3)**Hill-Climbing Algorithm** : It is an iterative algorithm that starts with an arbitrary solution to a problem, then attempts to find a better solution by incrementally changing a single element of the solution. If the change produces a better solution, an incremental change is made to the new solution, repeating until no further improvements can be found.
-  * (ii4)**Fitness function**  : A fitness function is a particular type of objective function that is used to summarise, as a single figure of merit, how close a given design solution is to achieving the set aims.
+  * (ii1)**Interface identification** : Identifying how components of a (web) application communicate extensively. To generate content for the end user, the components of a web application communicate by sending a certain type of HTTP request,
+called an interface invocation, to the interfaces of other components. An interface invocation provides arguments in the form of name-value pairs (e.g., login=username).
+  * (ii2)**Symbolic Execution** : Is a means of analyzing a program to determine what inputs cause each part of a program to execute
+  * (ii3)**Domain-constraining operations** : Certain types of operations that we call domain-constraining operations, implicitly constrain the domain of an IP. Examples of these operations are functions that convert an IP value into a numeric value or comparisons of the IP value against a specific value.
+  * (ii4)**Interface domain constraint (IDC)** : the set of constraints place on an accepted interface along a specific execution path an interface domain constraint (IDC). An accepted interface may have more than one IDC associated with it, if different domain-constraining operations are performed on its IPs along different paths.
 
 ## (iii) Artifacts
-* (iii1) **Motivation** : Author's previous work investigated a state-based testing approach, based on semantically interacting events. The main drawback of this approach is that exhaustive generation of semantically interacting event sequences limits quite severely the maximum achievable length, while longer sequences would have higher fault exposing capability. This paper investigates a search-based algorithm for the exploration of the huge space of long interaction sequences, in order to select those that are most promising, based on a measure of test case diversity, on the hill climbing algorithm. 
-* (iii2) **2.	Tutorial materials** : Paper proposes a search-based test case derivation technique for Ajax (called HILL), based on the hill climbing algorithm. Paper provides pseudo-code of the algorithm used by HILL to generate the sequences of semantically interacting events composing the final testing suite. 
+* (iii1) **Motivation** : As web applications become more widespread, sophisticated, and complex, automated quality assurance techniques for such applications have grown in importance. Accurate interface identification is fundamental for many of these techniques, as the components of a web application communicate extensively. Current techniques for identifying web application interfaces can be incomplete or imprecise. To address these limitations, paper present a new approach for identifying web application interfaces that is based on a specialized form of symbolic execution.
+* (iii2) **2.	Tutorial materials** : Paper gives an example web application to illustrate the technique. approach works in three main steps. In the first step, technique performs a transformation of the web application so that IPs are represented as symbolic values and domain-constraining operations are modeled by symbolic operations. In the second step, technique symbolically executes the web application and generates a set of PCs for each component. In the third step, technique identifies the accepted interfaces and interface domain constraints of the web application by analyzing the PCs generated during symbolic execution.
 
-Pseudo-code in paper:
+Sample code in paper, on which testing was done:
 
-![code](images/hill.png)
+![code](images/servlet.png)
 
 * (iii3) **3.	Data** : Two reusable projects are discussed, which we have submitted  at http://openscience.us/repo/contribute/donate.
 
-    a.	**Tudu Lists** is an Open Source, on-line application for managing todo lists
+    a.	**Java PathFinder (JPF)** an explicit-state model checker for Java programs
 
-    b.	**Oryx3** is an academic Open Source project that allows you to add your prototypes to a powerful process modeling infrastructure.
+    b.	**YICES** is an Satisfiability modulo theories (SMT) solver that decides the satisfiability of formulas containing uninterpreted function symbols with equality, linear real and integer arithmetic, bitvectors, scalar types, and tuples.
 
 * (iii4) **Related Work** : Several techniques and a few tools have been presented in the literature to support testing of Web applications.
 
