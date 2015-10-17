@@ -31,34 +31,26 @@ Sample code in paper, on which testing was done:
 
     b.	**YICES** is an Satisfiability modulo theories (SMT) solver that decides the satisfiability of formulas containing uninterpreted function symbols with equality, linear real and integer arithmetic, bitvectors, scalar types, and tuples.
 
-* (iii4) **Related Work** : Several techniques and a few tools have been presented in the literature to support testing of Web applications.
+* (iii4) **Related Work** : 
 
-    i.	Model-based testing of Web applications:
+    i.	developer-provided interface specifications:
     
-        1.	F. Ricca and P. Tonella. Analysis and testing of Web applications. In Proc. of ICSE 2001, International Conference
-on Software Engineering, Toronto, Ontario, Canada, May 12-19, pages 25–34, 2001.
+        1.	F. Ricca and P. Tonella. Analysis and Testing of Web Applications. In International Conference on Software Engineering, pages 25{34, May 2001.
       
-        2.	A. Andrews, J. Offutt, and R. Alexander. Testing Web Applications by Modeling with FSMs. Software and System Modeling, Vol 4, n. 3, July 2005.
+        2.	X. Jia and H. Liu. Rigorous and Automatic Testing of Web Applications. In 6th IASTED International Conference on Software Engineering and Applications, pages 280{285, November 2002.
+        3. A. A. Andrews, J. Outt, and R. T. Alexander. Testing Web Applications by Modeling with FSMs. In Software Systems and Modeling.
 
-    ii.	State-based testing approach:
+    ii.	Sophisticated heuristics approach:
     
-        1.	C. D. Turner and D. J. Robson. The state-based testing of object-oriented programs. IEEE Conference on Software Maintenance (ICSM), September 1993.
+        1.	Y. Huang, S. Huang, T. Lin, and C. Tsai. Web Application Security Assessment by Fault Injection and Behavior Monitoring. In Proc. of the 12th International World Wide Web Conference (WWW 03), pages 148{159, May 2003.
       
         2.	X. Yuan and A. M. Memon. Using GUI run-time state as feedback to generate test cases. In ICSE ’07: Proceedings of the 29th International Conference on Software Engineering, pages 396–405, Washington, DC, USA, May 23–25, 2007. IEEE Computer Society.
 
-        3.	A.Marchetto, P. Tonella, and F. Ricca. State-based testing of ajax web applications. In Proc. of IEEE International Con-ference on Software Testing (ICST), Lillehammer, Norway, April 2008.
+## (iv) Statistical tests	:
+  * Paper examines time needed to analyse various web applications. 
 
-    iii. Web Application Testing: Previous work on web application testing has focused on static webpages and the loosely
-    structured control flow between them: 
-    
-        1.	F. Ricca and P. Tonella. Analysis and testing of web applications. In Proceedings of the 23rd International Conference on Software Engineering (ICSE 2001), pages 25–34, 2001.
-    
-        2.	D. Kung, C. H. Liu, and P. Hsia. An object-oriented web test model for testing web applications. In 24th International Computer Software and Applications Conference (COMPSAC 2000), pages 537–542, 2000.
+![at](images/at.png)
 
-## (iv) Future work:
-  * (iv1) Future work will be devoted to the improvement of the FSM algorithm.
-  * (iv2) Experiment with alternative search based algorithms and we will apply them to a larger benchmark of Ajax applications.
-  * (iv3) Investigate the role of input selection and infeasible paths in the FSM during test case generation.
+  * Paper also shows examines for each application.
 
-
-
+![coverage](images/coverage.png)
