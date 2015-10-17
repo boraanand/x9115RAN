@@ -25,3 +25,5 @@ In GECCO Comp '14 Proceedings of the Companion Publication of the 2014 Annual Co
 [Paper](https://scholar.google.com/scholar?q=Search-Based+Testing+of+AjaxWeb+Applications&btnG=&hl=en&as_sdt=0%2C34)
 
 **Citations**: 34
+
+3. William Halfond, Saswat Anand, and Alessandro Orso. Precise interface identification to improve testing and analysis of web applications. In ISSTA ’09, pages 285–296, 2009
