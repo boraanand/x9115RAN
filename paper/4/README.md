@@ -59,3 +59,10 @@ No example presen on how these techniques have been applied to improve softwares
 Some informative visualizations woulf have been nice.Comparison of applying both ADA and GI on a particular algorithm and comparing improvements in functional and non functional requirements.
 #### iv3: 
 Since both ADA and GI use GP as their search method, a small tutorial on DP would have been nice.
+
+
+v: Connections to other papers:
+-------------------------------
+The ADA algorithm described in the book is a form of hyper hueristics search which is defined in paper 3 "Dynamic adaptive search based software engineering". Apart from that, the goal of paper 3 was to propose the new type of softwares that have sbse embeded in them tha will allow them to act as autonomous softwares that can update themselves. ADA and GI can act as one of the components to acheive that goal.
+
+
