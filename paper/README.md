@@ -27,3 +27,7 @@ In GECCO Comp '14 Proceedings of the Companion Publication of the 2014 Annual Co
 **Citations**: 34
 
 3. William Halfond, Saswat Anand, and Alessandro Orso. Precise interface identification to improve testing and analysis of web applications. In ISSTA ’09, pages 285–296, 2009
+
+
+4. Kiran Lakhotia , Phil McMinn , Mark Harman, 2009. Automated Test Data Generation for Coverage: Haven't We Solved This Problem Yet?, Proceedings of the 2009 Testing: Academic and Industrial Conference - Practice and Research Techniques, p.95-104, September 04-06, 2009 [Link](http://ieeexplore.ieee.org.prox.lib.ncsu.edu/stamp/stamp.jsp?tp=&arnumber=5381642&tag=1) 
+**Citations**: 55
