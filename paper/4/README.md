@@ -58,3 +58,4 @@ No example presen on how these techniques have been applied to improve softwares
 #### iv2: 
 Some informative visualizations woulf have been nice.Comparison of applying both ADA and GI on a particular algorithm and comparing improvements in functional and non functional requirements.
 #### iv3: 
+Since both ADA and GI use GP as their search method, a small tutorial on DP would have been nice.
