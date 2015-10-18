@@ -44,6 +44,7 @@ The main motivation behind the paper is to compare and contrast the ADA and GI. 
     + Increasing Speed of program
     + Migration and transplantation
     + Dynamic adaptive approach- Ability of sofftware to improve itself while its running.
+
 #### ii4: Future Work:
 - In the last section of paper, author provides a compare and contrast between ADA and GI. The author mainly describes the types of problem that both algorithm tries to solve, and which one to choose for a gives typeof problem. This can act as a base for the fuure work in the domain.
 - The most notable difference is that GI is applied in-situ or directly to the source code while ADA works ex-situ, i.e. evolves a function that is injected into the original code.
@@ -52,6 +53,8 @@ The main motivation behind the paper is to compare and contrast the ADA and GI. 
   
 iv: Improvements:
 -----------------
-#### iv1: No example presen on how these techniques have been applied to improve softwares. Eventhough references of other papers explaining that is present, it would have been nice to get 1 example of each.
-#### iv2: Some informative visualizations woulf have been nice.Comparison of applying both ADA and GI on a particular algorithm and comparing improvements in functional and non functional requirements.
+#### iv1: 
+No example presen on how these techniques have been applied to improve softwares. Eventhough references of other papers explaining that is present, it would have been nice to get 1 example of each.
+#### iv2: 
+Some informative visualizations woulf have been nice.Comparison of applying both ADA and GI on a particular algorithm and comparing improvements in functional and non functional requirements.
 #### iv3: 
