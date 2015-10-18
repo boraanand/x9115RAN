@@ -53,3 +53,11 @@ Not clear how the author plans to achieve hypothesis. Author provides details ab
 
 #### iv3:
 No examples of synthetic data sets provided. The author has dedicated 2 sections of paper on the discussion of various properties of synthetic data sets for Experimentations in software engineering.But there are no example data sets provided for that. No supporting visuals would have been nice too.
+
+
+v: connection to initial paper(s):
+----------------------------------
+This paper takes initial seed paper as one of its motivations. The seed paper talks about automated test generations using sbse. This paper pus forward an hypothesis about hollistic sbse for softwares that will allow the softwares to behave as autonomic entities. Author derives this motivation becasuse os the isolated use of sbse in test generation (seed paper) , re-design aspects of systems to fix bugs using genetic programming, migration to new platforms and languages and optimization of nonfunctional properties.
+
+
+
