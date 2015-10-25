@@ -1,4 +1,3 @@
 ### Schaffer:
-![sa](images/sa.png)
-
+![sa](images/sa.png) 
 
