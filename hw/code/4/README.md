@@ -1,4 +1,3 @@
-### MaxWalkSat:
-![mws](images/mws.png)
-
+### Schaffer:
+![sa](images/sa.png) 
 
