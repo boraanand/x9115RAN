@@ -159,7 +159,7 @@ def mws():
 if __name__ == '__main__':
     best = mws()
     print ('\nBest energy = %.4f' % best[1])
-    print ('At x = [' , '%.2f' % best[0][1], ',', '%.2f' % best[0][2],',', '%.2f' % best[0][3], ',', '%.2f' % best[0][4], '%.2f' % best[0][5], ']')
+    print ('At x = [' , '%.2f' % best[0][1], ',', '%.2f' % best[0][2], ',', '%.2f' % best[0][3], ',', '%.2f' % best[0][4], ',', '%.2f' % best[0][5], ']')
     print ('Evals = ' , evals)
     
 #     print ('\nBest Energy = ', best.E(), ' at x = ', best.x)
