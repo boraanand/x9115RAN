@@ -1,7 +1,7 @@
 Reference:
 -----------
 
-By Gordon Fraser, Andrea Arcuri, "The Seed is Strong: Seeding Strategies in Search-BAsed SOftware Testing", IEEE Fifth International Conference on Software Testing, Verification and Validation, 2012 [Link](http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=6200103)
+By Gordon Fraser, Andrea Arcuri, "The Seed is Strong: Seeding Strategies in Search-Based Software Testing", IEEE Fifth International Conference on Software Testing, Verification and Validation, 2012 [Link](http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=6200103)
 
 ii: Keywords:
 ------------------

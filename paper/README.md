@@ -14,6 +14,9 @@ IN ESEM '12 Proceedings of the ACM-IEEE international symposium on Empirical sof
 By Saemundur O. Haraldsson, John R. Woodward.
 In GECCO Comp '14 Proceedings of the Companion Publication of the 2014 Annual Conference on Genetic and Evolutionary Computation. [Link](http://www.cs.stir.ac.uk/~jrw/publications/2014/AutomatedDesignAlgorithmsGeneticImprovementContrastCommonalities/AutomatedDesignAlgorithmsGeneticImprovementContrastCommonalities.pdf)
 
+3.The Seed is Strong: Seeding Strategies in Search-BAsed SOftware Testing
+By Gordon Fraser, Andrea Arcuri.
+In IEEE Fifth International Conference on Software Testing, Verification and Validation, 2012 [Link](http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=6200103)   **Citations**: 44
 
 ## Moving back in the timeline:
 1. Dynamic Test Input Generation for Web Applications. By Gary Wassermann, Dachuan Yu, Ajay Chander, Dinakar Dhurjati, Hiroshi Inamura, Zhendong Su. In ISSTA '08 Proceedings of the 2008 international symposium on Software testing and analysis
