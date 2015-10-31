@@ -39,7 +39,7 @@ Authors mentioned that further seeding strategies are possible, and these as wel
 
 iv: Improvements:
 -------------
-Though its a very well written papers, I think below points could be area of improvement.
+Though it is a very well written paper, I think below points could be area of improvement.
 
 #### iv1: 
 In this paper, the length of test suite generated is given secondary priority with prime focus on coverage. But, it could have been better if they could have run the experiments with equal focus on coverage as well as length. Those results would have given better understanding of feasibility and usability of the test suites.
@@ -52,4 +52,4 @@ But they have not mentioned the reason coming up with 30. It could have been bet
 The paper claims that seeding strategies help EVOSUITE to achieve higher code coverage. But, it is possible that there exists parameter combinations for seeding strategies and search budget, that can perform better. So different parameter settings should be tried.
 
 ##### Connection to the initital paper(s):
-
+This paper is on seeding strategies and the initial paper too has mentioned one if the seeding strategy named "Dynamically Mined Value".
