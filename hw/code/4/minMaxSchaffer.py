@@ -8,7 +8,7 @@ if __name__ == '__main__':
     min = 100000
     max = -100000
     
-    for _ in range(100):
+    for _ in range(5000000):
         x = r.randint(-100000, 100000)
         e = f1(x) + f2(x)
         if min > e:
