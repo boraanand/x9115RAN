@@ -93,12 +93,10 @@ def sa(model):
         c = r.randint(0, len(s.dec) - 1)
         sn = neighbor(s, c, model)  # Pick some neighbor.
         en = sn.getEnergy()  # Compute its energy.
-#         global Emin
-#         Emin = min(Emin, en)
-        if en < eb:  # Is this a new best?
+        if sb.ltOrGt(en,eb): #Is this a new best?
             sb = deepcopy(sn); eb = en  # Yes, save it.
             print('!', end='')
-        elif en < e:  # Should we jump to better?
+        elif sb.ltOrGt(en,e): #Should we jump to better?
             s = deepcopy(sn); e = en  # Yes!
             print('+', end='')
         elif P(e, en, float(50 * (k / kmax))) < float((r.randint(0, 100)) / 100):  # Should we jump to worse?
