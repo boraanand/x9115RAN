@@ -1,6 +1,8 @@
 from __future__ import print_function, division
 import random as r
 import math
+import copy
+from copy import deepcopy
 
 class Model(object):
     def random(i):
@@ -16,8 +18,8 @@ class Model(object):
     def getEnergy(i):
         return True
 
-    def clone(i, other):
-        i.dec = other.dec[:]
+#     def clone(i, other):
+#         i.dec = other.dec[:]
 
     def getobj(i):
         return []
@@ -63,11 +65,10 @@ class Schaffer(Model):
     
 # randomNu = r.randint(-100000, 2 * i.x - (-100000))  # Select neighbour a random in in a radius from current x to min.
 
-def neighbor(s,c,model):
-    sn=model()
-    sn.clone(s)
+def neighbor(s, c, model):
+    sn = deepcopy(s)
     while True:
-        sn.dec[c][0]=r.uniform(s.dec[c][1], s.dec[c][2])
+        sn.dec[c][0] = r.uniform(s.dec[c][1], s.dec[c][2])
         if sn.ok(): 
             break
     return sn
@@ -78,11 +79,9 @@ def P(old, new, t):
 def sa(model):
 #     x0 = r.randint(-100000, 100000)
     s0 = model()
-    s = model()
-    s.clone(s0); 
+    s = deepcopy(s0)
     e = s.getEnergy()  # Initial state, energy.
-    sb = model()
-    sb.clone(s); 
+    sb = deepcopy(s)
     eb = e  # Initial "best" solution
     k = 1  # Energy evaluation count.
     kmax = 1000
@@ -91,19 +90,19 @@ def sa(model):
         if k == 1 or k % 50 == 0: 
             print ("%e" % sb.getEnergy(), end=' ') 
         
-        c = r.randint(0, len(s.dec)-1)
+        c = r.randint(0, len(s.dec) - 1)
         sn = neighbor(s, c, model)  # Pick some neighbor.
         en = sn.getEnergy()  # Compute its energy.
 #         global Emin
 #         Emin = min(Emin, en)
         if en < eb:  # Is this a new best?
-            sb.clone(sn); eb = en  # Yes, save it.
+            sb = deepcopy(sn); eb = en  # Yes, save it.
             print('!', end='')
         elif en < e:  # Should we jump to better?
-            s.clone(sn); e = en  # Yes!
+            s = deepcopy(sn); e = en  # Yes!
             print('+', end='')
-        elif P(e, en, float(500 * (k / kmax))) < float((r.randint(0, 100)) / 100):  # Should we jump to worse?
-            s.clone(sn); e = en  # Yes, change state.
+        elif P(e, en, float(50 * (k / kmax))) < float((r.randint(0, 100)) / 100):  # Should we jump to worse?
+            s = deepcopy(sn); e = en  # Yes, change state.
             print('?', end='')
         else:
             print('.', end='')
@@ -112,7 +111,6 @@ def sa(model):
         if k % 50 == 0: 
             print ('') 
     print ('\nBest Energy = ', eb, ' at x = ', sb.dec[0][0])
-    print ('\nBest Energy = ', sb.getEnergy())
 
 if __name__ == '__main__':
     for model in [Schaffer]:
