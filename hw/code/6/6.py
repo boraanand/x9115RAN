@@ -2,6 +2,8 @@ from __future__ import print_function, division
 import random as r
 import math
 from copy import deepcopy
+import sys
+from math import sqrt, exp, sin
 
 class Model(object):
     def random(i):
@@ -23,17 +25,72 @@ class Model(object):
     def ok(i):
         return True
 
-    def ltOrGt(i):
-        return True
+    # Default less than
+    # less than. Goal is to minimize. Return true if new < best.
+    def ltOrGt(i, Enew, Ebest):
+        if Enew < Ebest:
+            return True
+        return False
+
+    def getMinMax(i):
+        min = sys.maxint
+        max = -1 * sys.maxint
+        for _ in range(500000):
+            i.random()
+            e = sum(i.objs())
+            if min > e:
+                min = e
+            if max < e:
+                max = e
+        print(min , " : " , max)
+        return min, max    
     
+class Kursawe(Model):
+     
+    def __init__(i):
+        i.dec = [[1, -5, 5]]
+        i.dec.append([1,-5,5])
+        i.dec.append([1,-5,5])
+        i.random()
+        i.Emin, i.Emax = i.getMinMax()
+ 
+    def normalize(i, e):
+ 
+        if i.Emin > e:
+            i.Emin = e
+        if i.Emax < e:
+            i.Emax = e
+ 
+        return (e - i.Emin) / (i.Emax - i.Emin)
+
+    def f1(i):
+        total = 0
+        for j in range(len(i.dec)-1):
+            e = -0.2 * sqrt(i.dec[j][0]**2 + i.dec[j+1][0]**2)
+            total+= -10*exp(e)
+        return total
+    
+    def f2(i):
+        total = 0
+        for j in range(len(i.dec)):
+            total+= abs(i.dec[j][0])**0.8 + 5*sin(i.dec[j][0]**3)
+        return total
+         
+    def objs(i):
+        return [i.f1(), i.f2()]
+     
+    def getEnergy(i):
+        return i.normalize(sum(i.objs()))
+ 
+    def getDenormalizedEnergy(i):
+        return sum(i.objs())
 
 class Schaffer(Model):
     
     def __init__(i):
         i.dec = [ [1, -10 ** 2, 10 ** 2] ]
         i.random()
-        i.Emin = 2
-        i.Emax = 20000400004
+        i.Emin, i.Emax = i.getMinMax()
 
     def normalize(i, e):
 
@@ -43,13 +100,6 @@ class Schaffer(Model):
             i.Emax = e
 
         return (e - i.Emin) / (i.Emax - i.Emin)
-
-
-    # less than. Goal is to minimize. Return true if new < best.
-    def ltOrGt(i, Enew, Ebest):
-        if Enew < Ebest:
-            return True
-        return False
         
     def objs(i):
         f1 = i.dec[0][0] ** 2
@@ -63,17 +113,15 @@ class Schaffer(Model):
         return sum(i.objs())
 
 class Osyczka2(Model):
-    
     def __init__(i):
-        i.dec = [[1, 0, 10]]
-        i.dec.append([1,0,10])
-        i.dec.append([2,1,5])
-        i.dec.append([1,0,6])
-        i.dec.append([2,1,5])
-        i.dec.append([1,0,10])
+        i.dec = [[-1, 0, 10]]
+        i.dec.append([-1,0,10])
+        i.dec.append([-2,1,5])
+        i.dec.append([-1,0,6])
+        i.dec.append([-2,1,5])
+        i.dec.append([-1,0,10])
         i.random()
-        i.Emin = -396.221369935
-        i.Emax = 146.314249947
+        i.Emin, i.Emax = i.getMinMax()
 
     # Check input constraints
     def okx1x2(i):
@@ -101,12 +149,18 @@ class Osyczka2(Model):
         return  i.okx1x2() and i.okx3x4() and i.okx5x6()
 
     def random(i):
+        i.dec[0][0] = r.uniform(i.dec[0][1], i.dec[0][2])
+        i.dec[1][0] = r.uniform(i.dec[1][1], i.dec[1][2])
         while not i.okx1x2():
             i.dec[0][0] = r.uniform(i.dec[0][1], i.dec[0][2])
             i.dec[1][0] = r.uniform(i.dec[1][1], i.dec[1][2])
+        i.dec[2][0] = r.uniform(i.dec[2][1], i.dec[2][2])
+        i.dec[3][0] = r.uniform(i.dec[3][1], i.dec[3][2])
         while not i.okx3x4():
             i.dec[2][0] = r.uniform(i.dec[2][1], i.dec[2][2])
             i.dec[3][0] = r.uniform(i.dec[3][1], i.dec[3][2])
+        i.dec[4][0] = r.uniform(i.dec[4][1], i.dec[4][2])
+        i.dec[5][0] = r.uniform(i.dec[5][1], i.dec[5][2])
         while not i.okx5x6():
             i.dec[4][0] = r.uniform(i.dec[4][1], i.dec[4][2])
             i.dec[5][0] = r.uniform(i.dec[5][1], i.dec[5][2])
@@ -296,7 +350,7 @@ def mws(model):
     print ('\n\n')
 
 if __name__ == '__main__':
-    for model in [Schaffer,Osyczka2]:
+    for model in [Schaffer, Osyczka2, Kursawe]:
         for optimizer in [sa, mws]:
             print(optimizer.__name__, " : " , model.__name__)
             optimizer(model)
