@@ -108,7 +108,8 @@ def sa(model):
     
         if k % 50 == 0: 
             print ('') 
-    print ('\nBest Energy = ', eb, ' at x = ', sb.dec[0][0])
+        
+    print ('\nBest Energy = ', eb, ' at x = ', zip(*sb.dec)[0])
 
 if __name__ == '__main__':
     for model in [Schaffer]:
