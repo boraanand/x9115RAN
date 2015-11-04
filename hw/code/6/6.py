@@ -60,6 +60,9 @@ class Schaffer(Model):
     def getEnergy(i):
         return i.normalize(sum(i.objs()))
 
+    def getDenormalizedEnergy(i):
+        return sum(i.objs())
+
 class Osyczka2(Model):
     
     def __init__(i):
@@ -133,6 +136,8 @@ class Osyczka2(Model):
     def getEnergy(i):
         return i.normalize(sum(i.objs()))
     
+    def getDenormalizedEnergy(i):
+        return sum(i.objs())
 
 def neighbor(s, c, model):
     sn = deepcopy(s)
@@ -188,6 +193,8 @@ def sa(model):
             print ('') 
         
     print ('\nBest Energy = ', eb, ' at x = ', zip(*sb.dec)[0])
+    print ('\nBest Denormalized Energy = ', sb.getDenormalizedEnergy(), ' at x = ', zip(*sb.dec)[0])
+    print ('\n')
 
 if __name__ == '__main__':
     for model in [Schaffer,Osyczka2]:
