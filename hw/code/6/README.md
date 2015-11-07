@@ -180,3 +180,8 @@ Evals =  18350
 
 
 
+
+## Legend
+* **?** represents a random jump and the solution changes.
+* **+** represents a better solution using a local change along one dimension
+* **.** represents a solution that does not change
