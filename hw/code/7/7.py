@@ -529,5 +529,11 @@ def de(model):
 if __name__ == '__main__':
     for model in [Schaffer, Osyczka2, Kursawe, Golinski]:
         for optimizer in [sa, mws, de]:
-            print(optimizer.__name__, " : " , model.__name__)
+            if optimizer.__name__ == 'sa':
+                name = 'Simulated Annealing'
+            if optimizer.__name__ == 'mws':
+                name = 'MaxWalkSAT'
+            if optimizer.__name__ == 'de':
+                name = 'Differential Evolution'
+            print("**", name, " on " , model.__name__, "**")
             optimizer(model)
