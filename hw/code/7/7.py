@@ -350,7 +350,7 @@ def drange(start, stop, step):
     while start < stop:
             yield start
             start += step
-  
+
 def changeCToMaximizeEnergy(c, s, e_old):
     global evals
     step = (s.dec[c][2] - s.dec[c][1]) / float(steps)
@@ -383,7 +383,7 @@ def mws(model):
         for _ in range(maxchanges) :
             evals += 1
             if printCtr == 0 or printCtr % 50 == 0: 
-                print ("%e" % e, end=' ') 
+                print ("%e" % e_best, end=' ') 
     
 #             if e > threshold:
 # #                 return x, e
