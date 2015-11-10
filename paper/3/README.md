@@ -1,63 +1,56 @@
-Reference:
-----------
-1. Dynamic adaptive search based software engineering.
-By Mark Harman, Edmund Burke, John Clark and Xin Yao, 2012.
-IN ESEM '12 Proceedings of the ACM-IEEE international symposium on Empirical software engineering and measurement
-[Link](http://www0.cs.ucl.ac.uk/staff/mharman/esem12.pdf)
+# Summary 
+## (i) Reference : 
+## Precise Interface Identification to Improve Testing and Analysis of Web Applications
+William G.J. Halfond, Saswat Anand, and Alessandro Orso
 
-ii: Keywords:
-------------------
-#### ii1: Search Based Software Engineering (SBSE): 
-*"Search Based Software Engineering (SBSE) is the name given to a field of research and practice in which computational search (as well as optimization techniques more usually associated with Operations Research) are used to address problems in Software Engineering"*
-#### ii2: Hyper-heuristic search: 
-Normal heuristics operate on search space of potential solutions. Hyper Heuristics operate on search space of heuristics.
-#### ii3: Self Adaptive software Systems: 
-Software systems that have SBSE integrated within the systems that allows them to fix faults and cope with anomalies, provides on-line adaptivity to meet new challenges, environments and platforms. 
-#### ii4: Automatic Programming: 
-When software re writes of updates the part of software itself.
+Georgia Institute of Technology
 
-iii: Artifacts:
-------------------
-#### iii1: Motivational statements:
-- The main motivation behind this paper is to present a proposal of applying Search based software engineering practices to create self adaptive software systems. The author starts by refereing many examples where SBSE is proved useful in the past : Requirements optimization, Predictive Modelling, search based testing for Non-Functional Properties, Program Comprehension, search–based software design and search based automated Testing. - The main challenge according author is following: Although SBSE has been successfully applied in isolation to the above mentioned phases of software development process, there is a need to develop holistic sbse approach which can allow all of these techniques to applied in co-ordination. The programmers will not need to devise the search algorithms for different phases.
-- Instead of designing bespoke optimization algorithms for specific instances, we advocate the design of ‘reasonably good’ hyper heuristic optimizers that have the generality to be applied more readily ‘out of the box’.
-- Self-adaptivity has been a goal of software and systems engineering research for some time and author beleives that SBSE will allow to add some value to this grand challenge.
+{whalfond|saswat|orso} @ cc . gatech . edu
 
-#### iii2: Hypothesis: 
-- The author believes that using Hyper heuristics search, we can directly optimize the engineering material: the programs themselves. This means that the software itself will re-balance, re-configure, and even to redevelop itself as it operates.
-- Since we have achieved great results in tuning of parameters, re-design aspects of systems to fix bugs using genetic programming, migration to new platforms and languages and optimization of nonfunctional
-properties, All this work is early indication of potential for Dynamic Adaptive SBSE.
+[Paper](http://dl.acm.org/citation.cfm?id=1572305)
+[Download](http://www-bcf.usc.edu/~halfond/papers/halfond09issta.pdf)
 
-#### iii3: Related Work:
-The author provides a good introduction on the all the relevant work done so far in the field of SBSE that might help us to get the motivation for developing autonomous softwares in the future. Specifically, the most important work is in the field of genetic programming. Following work has shown good potential :
+## (ii) Keywords
+  * (ii1)**Interface identification** : Identifying how components of a (web) application communicate extensively. To generate content for the end user, the components of a web application communicate by sending a certain type of HTTP request,
+called an interface invocation, to the interfaces of other components. An interface invocation provides arguments in the form of name-value pairs (e.g., login=username).
+  * (ii2)**Symbolic Execution** : Is a means of analyzing a program to determine what inputs cause each part of a program to execute
+  * (ii3)**Domain-constraining operations** : Certain types of operations that we call domain-constraining operations, implicitly constrain the domain of an IP. Examples of these operations are functions that convert an IP value into a numeric value or comparisons of the IP value against a specific value.
+  * (ii4)**Interface domain constraint (IDC)** : the set of constraints place on an accepted interface along a specific execution path an interface domain constraint (IDC). An accepted interface may have more than one IDC associated with it, if different domain-constraining operations are performed on its IPs along different paths.
 
-1. **Bug fixing:** The automated generation of Bug Fix patches is already successfully implemented. Currently, this is used for temporary fix in the program till developer fixes the actual bug. Recently evidences have found for the patches that can sustain long term in software.
-2. **Migration:** Evidence have been found that indicates that it is possible to evolve new code for completely different architectures and languages than those for which the original code was designed.
-A key insight in this work is that the original program can act as an oracle for the functional requirements of the system to be re-evolved in this way.
-3. **Trading Functional and non-functional requirements:** Finding balance between functional and non functional requirements of software. How should we decide if we need to sacrifice the functional requirments for performance benefits. Author mentions the results achieved in pseudo random generator.
+## (iii) Artifacts
+* (iii1) **Motivation** : As web applications become more widespread, sophisticated, and complex, automated quality assurance techniques for such applications have grown in importance. Accurate interface identification is fundamental for many of these techniques, as the components of a web application communicate extensively. Current techniques for identifying web application interfaces can be incomplete or imprecise. To address these limitations, paper present a new approach for identifying web application interfaces that is based on a specialized form of symbolic execution.
+* (iii2) **2.	Tutorial materials** : Paper gives an example web application to illustrate the technique. approach works in three main steps. In the first step, technique performs a transformation of the web application so that IPs are represented as symbolic values and domain-constraining operations are modeled by symbolic operations. In the second step, technique symbolically executes the web application and generates a set of PCs for each component. In the third step, technique identifies the accepted interfaces and interface domain constraints of the web application by analyzing the PCs generated during symbolic execution.
 
-#### iii4: Patterns:
+Sample code in paper, on which testing was done:
 
-- The authors provides a great insight into the role of Experimentation vs Empirical results in relation to computer science. Experimentation is something that scientists do "under the laboratory conditions" in order to observe cause and effect of different quantities. On the other hand, epirical results are any statement about the world that is related to observation or experience.
-- In order to make experimentations in software engineering, people often use synthetic data. Author makes a cautious note that such data should be used only for finding answers that are not clear from real data. It should not be a "substitute" , rather it should be "augmentation" to real data. In empirical software engineering we need both laboratory controlled data and data based on real world empirical experimentation, not one or the other.
+![code](images/servlet.png)
 
-We can clearly see that these insights can be used for other researches as well. Hence this falls under "pattern" section.
+* (iii3) **3.	Data** : Two reusable projects are discussed, which we have submitted  at http://openscience.us/repo/contribute/donate.
 
-iv: Improvements:
------------------
-#### iv1:
-No concrete examples present in paper to support the authors claims about Adaptive Automated Software Engineering. Although the purpose of the paper is to introduce this new idea that can be worked upon by other researchers in the future, it would have been nice to give some pointers on the required work done by the authors.
+    a.	**Java PathFinder (JPF)** an explicit-state model checker for Java programs
 
-#### iv2:
-Not clear how the author plans to achieve hypothesis. Author provides details about the work done so far, and related work.but there is no mention on techniques to consolidate that work into holistic system. This question is somewhat kept open ended by authors.
+    b.	**YICES** is an Satisfiability modulo theories (SMT) solver that decides the satisfiability of formulas containing uninterpreted function symbols with equality, linear real and integer arithmetic, bitvectors, scalar types, and tuples.
 
-#### iv3:
-No examples of synthetic data sets provided. The author has dedicated 2 sections of paper on the discussion of various properties of synthetic data sets for Experimentations in software engineering.But there are no example data sets provided for that. No supporting visuals would have been nice too.
+* (iii4) **Related Work** : 
 
+    i.	developer-provided interface specifications:
+    
+        1.	F. Ricca and P. Tonella. Analysis and Testing of Web Applications. In International Conference on Software Engineering, pages 25{34, May 2001.
+      
+        2.	X. Jia and H. Liu. Rigorous and Automatic Testing of Web Applications. In 6th IASTED International Conference on Software Engineering and Applications, pages 280{285, November 2002.
+        3. A. A. Andrews, J. Outt, and R. T. Alexander. Testing Web Applications by Modeling with FSMs. In Software Systems and Modeling.
 
-v: connection to initial paper(s):
-----------------------------------
-This paper takes initial seed paper as one of its motivations. The seed paper (Automated Web Application Testing Using Search Based Software Engineering) talks about automated test generations using sbse. This paper pus forward an hypothesis about hollistic sbse for softwares that will allow the softwares to behave as autonomic entities. Author derives this motivation becasuse os the isolated use of sbse in test generation (seed paper) , re-design aspects of systems to fix bugs using genetic programming, migration to new platforms and languages and optimization of nonfunctional properties.
+    ii.	Sophisticated heuristics approach:
+    
+        1.	Y. Huang, S. Huang, T. Lin, and C. Tsai. Web Application Security Assessment by Fault Injection and Behavior Monitoring. In Proc. of the 12th International World Wide Web Conference (WWW 03), pages 148{159, May 2003.
+      
+        2.	X. Yuan and A. M. Memon. Using GUI run-time state as feedback to generate test cases. In ICSE ’07: Proceedings of the 29th International Conference on Software Engineering, pages 396–405, Washington, DC, USA, May 23–25, 2007. IEEE Computer Society.
 
+## (iv) Statistical tests	:
+  * Paper examines time needed to analyse various web applications. 
 
+![at](images/at.png)
 
+  * Paper also shows examines for each application.
+
+![coverage](images/coverage.png)
