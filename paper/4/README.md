@@ -1,68 +1,60 @@
 Reference:
-----------
-Automated design of algorithms and genetic improvement: contrast and commonalities
-By Saemundur O. Haraldsson, John R. Woodward.
-In GECCO Comp '14 Proceedings of the Companion Publication of the 2014 Annual Conference on Genetic and Evolutionary Computation. [Link](http://www.cs.stir.ac.uk/~jrw/publications/2014/AutomatedDesignAlgorithmsGeneticImprovementContrastCommonalities/AutomatedDesignAlgorithmsGeneticImprovementContrastCommonalities.pdf)
+-----------
+
+By Kiran Lakhotia , Phil McMinn , Mark Harman, 2009. Automated Test Data Generation for Coverage: Haven't We Solved This Problem Yet?, Proceedings of the 2009 Testing: Academic and Industrial Conference - Practice and Research Techniques, p.95-104, September 04-06, 2009 [Link](http://ieeexplore.ieee.org.prox.lib.ncsu.edu/stamp/stamp.jsp?tp=&arnumber=5381642&tag=1)
 
 ii: Keywords:
---------------
+------------------
+#### ii1: Concolic testing:
+It formulates the test data generation problem as one of finding a solution to a constraint satisfaction problem, the constraints of which are produced by concolic execution of the program under test. Concolic execution combines symbolic  and concrete execution.
 
-#### ii1: Automated Design of Algorithms:
-A methodology for using sbse for discovering and updating the algorithms for computational problems.
+#### ii2: Search Based Testing: 
+Search based testing formulates the test data adequacy criteria as objective functions, which can be optimized using Search Based Software Engineering.
 
-#### ii2: Genetic Improvement(GI):
-GI is methodology where we directly apply sbse techniques on the source code. It treats software code as gentic material and tries to mutate it to improve the program for a given objective. These operations may for example
-consist of copying, deleting and swapping lines of code.
+#### ii3: AUSTIN: 
+A search based tool to generate test data.
 
-#### ii5: Genetic Algorithm (GA): 
-These are evolutionary algorithms used to solve optimization problems. Below are the two main steps:
-1. Initial generation of candidate solutions at random (tested against the objective function)
-2. Subsequent generations evolve from the 1st through selection, crossover and mutation.
-
-#### ii3: Genetic Programming (GP): 
-Specialization of genetic algorithms where each individual is a computer program. Computer programs are represented as Abstract Syntax trees and these tree are mutated to generate new programs.
-
-
+#### ii4: CUTE: 
+A concolic tool to generate test data.
 
 iii: Artifacts:
-------------------
-#### ii1. Motivational statements:
-The main motivation behind the paper is to compare and contrast the ADA and GI. Both of these techniques have been used to design the new algorithms automatically using sbse. Although these techniques have some overlap, there are few fundamental difference in the approaches. The author wants to give us more insight for both of these techniques so that it will clear things out for future research.
+---------------
+#### iii1. Motivational statements:
+Little work had been done (at the time of writing that paper) to realize the effectiveness of concolic testing and search based testing with complete real world software applications.  
+Research questions:  
+i) How effective are concolic and search based tools when applied to real world software applications?  
+ii) How long does it take for concolic and search based tools to achieve certain levels of coverage?  
 
-#### ii2. pattern:
-- The authors proide a good pattern for Altering and adjusting the algorithms to solve new problems. These techniques can be used as general pattern for automatic design ofAlgorithms.
-    + replacing: Replace the components of existing algorithm by the component from some fixed set.
-    + reordering: Depending on the restrictions, algorithms can be reorderd for initializing,return statements.
-    + Parameter tuning: Changing the amount of any or each componnt. This should be used in association with the above two techniques, so that newly generated algorithm is tested against tuned parameters.
-- When the algorithm being designed is a search or an optimization algorithm the main objective of the fitness function is typically to improve a functional property that is evaluated as the fitness of the best solution found by the evolved algorithm
+#### iii2. Related Work: 
+Authors have mentioned some of the tools based on random testing, concolic testing and search based testing. DART (by Godefroid et al.) , a random testing tool, is  different from CUTE as DART does not attempt to solve constraints involving memory locations.  
+CREST tool is also mentioned by authors. It is a recent open-source successor to CUTE. It has  a more sophisticated, CFG based, path exploration strategy in comparison to CUTE.  
+ET-S (developed by Daimler) uses evolutionary algorithms to achieve various coverage types, including path,branch and data flow coverage.  
+Burnim and Sen  considered different search strategies to explore program paths in concolic testing and evaluated their findings on large open source applications including the Siemens benchmark suite, grep, a search utility based on regular expressions, and vim, a common text editor.  
+Concolic testing has also been used to search for security vulnerabilities in large Microsoft applications as part of the SAGE tool.  
 
-#### ii3. Tutorial materials:
-- Author provides a comprehensive guide to ADA and GI in the paper. 
-- One particular instance is guide to GI, its Application comparison with ADA. Author specifies how to choose fitness functions for GI - *The correctness of an improvement is found either by comparing the output with the output of the original software as an oracle [34, 2] or by evaluating its performance on a suite of test cases that has already been run on the original code*
-- Applications of GI: 
-    + Bug Fixing
-    + Increasing Speed of program
-    + Migration and transplantation
-    + Dynamic adaptive approach- Ability of sofftware to improve itself while its running.
+#### iii3: Patterns:
+ While comparing two approaches, one of the best practices to be followed is the comparison should be fair.  
+Authors have given the importance to that and mentioned how they have tried to avoid any threats to validity of their findings. To address internal validity threats to the experiments, they have used default settings and if not possible, then reasonable values have been used.To address external validity threats, the authors have used a variety of programming styles and sources.  
 
-#### ii4: Future Work:
-- In the last section of paper, author provides a compare and contrast between ADA and GI. The author mainly describes the types of problem that both algorithm tries to solve, and which one to choose for a gives typeof problem. This can act as a base for the fuure work in the domain.
-- The most notable difference is that GI is applied in-situ or directly to the source code while ADA works ex-situ, i.e. evolves a function that is injected into the original code.
--  GI makes small changes, sometimes many small changes that do not have to be constrained to a small region of the source code. ADA’s improvement of an existing program on the other hand is a replacement of a certain call or statement in the source and is thus limited to the places where that call is made.
+#### iii4. Results: 
+The results show that there are many challenges remaining in making automatic test data generation tools robust and of a standard that could be considered ‘industrial strength’.   
+This is because with the exception of one of the test subjects chosen, neither tool managed to generate test data for over 50% of the branches in each application’s code.   
+Two main challenges pointed by authors are -  the tools need to be able to prevent or recover from segmentation faults, so that they may continue the test data generation process to any effect. Secondly, test data generation tools need to become much more heterogeneous in nature.   
 
-  
 iv: Improvements:
------------------
+-------------
+Though its a very well written papers, I think below points could be area of improvement.
+
 #### iv1: 
-No example presen on how these techniques have been applied to improve softwares. Eventhough references of other papers explaining that is present, it would have been nice to get 1 example of each.
+Authors have not given the reason behind choosing CUTE or AUSTIN instead of other concolic tools or search based tools. Like checking effectiveness of concolic testing could be tested with CREST instead of CUTE which could have given better results.  
+
 #### iv2: 
-Some informative visualizations woulf have been nice.Comparison of applying both ADA and GI on a particular algorithm and comparing improvements in functional and non functional requirements.
-#### iv3: 
-Since both ADA and GI use GP as their search method, a small tutorial on DP would have been nice.
+There were number of functions which were not tested because of compilation error. Those things could have impacted the results observed. The authors could have given the reason of choosing the particular real world applications or could have argued that those errors are really not because of the application.  
 
+#### iv3:
+The authors selected random 12 functions from the 4 test objects  to test the effectiveness of two approaches. It could have been better if apart from random 12 functions, they could have tested on some known functions on which both approaches were expected to perform better. It would have given additional evidences of the effectiveness of search based and concolic testing to generate input test data.  
 
-v: Connections to other papers:
--------------------------------
-The ADA algorithm described in the book is a form of hyper hueristics search which is defined in paper 3 "Dynamic adaptive search based software engineering". Apart from that, the goal of paper 3 was to propose the new type of softwares that have sbse embeded in them tha will allow them to act as autonomous softwares that can update themselves. ADA and GI can act as one of the components to acheive that goal.
-
+##### Connection to the initital paper(s):
+The paper has discussed two techniques to generate test data - concolic testing and search based testing. The paper1”Automated Web Application Testing Using Search Based Software Engineering”  also discussed search based testing. Even both papers discussed AVM(Alternating Variable Method).  
+Paper 2 ”Dynamic test input generation for web applications” discussed concolic testing which is one of the technique whose effectiveness was measured in this paper.   
 
