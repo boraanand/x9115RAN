@@ -1,55 +1,60 @@
 Reference:
 -----------
 
-By Gordon Fraser, Andrea Arcuri, "The Seed is Strong: Seeding Strategies in Search-Based Software Testing", IEEE Fifth International Conference on Software Testing, Verification and Validation, 2012 [Link](http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=6200103)
+By Kiran Lakhotia , Phil McMinn , Mark Harman, 2009. Automated Test Data Generation for Coverage: Haven't We Solved This Problem Yet?, Proceedings of the 2009 Testing: Academic and Industrial Conference - Practice and Research Techniques, p.95-104, September 04-06, 2009 [Link](http://ieeexplore.ieee.org.prox.lib.ncsu.edu/stamp/stamp.jsp?tp=&arnumber=5381642&tag=1)
 
 ii: Keywords:
 ------------------
-#### ii1: Genetic Algorithm(GA):
-It is an evolutionary algorithm (EA), which generate solutions to optimization problems using techniques inspired by natural evolution, such as inheritance, mutation, selection and crossover.
+#### ii1: Concolic testing:
+It formulates the test data generation problem as one of finding a solution to a constraint satisfaction problem, the constraints of which are produced by concolic execution of the program under test. Concolic execution combines symbolic  and concrete execution.
 
-#### ii2: Seeding: 
-Seeding refers to any technique that exploits previous related knowledge to help solve the testing problem at hand.
+#### ii2: Search Based Testing: 
+Search based testing formulates the test data adequacy criteria as objective functions, which can be optimized using Search Based Software Engineering.
 
-#### ii3: EVOSUITE:
-An advanced tool based on Genetic Algorithm, featuring for example the whole test suite optimization approach to test data generation, bloat control techniques and effective assertion generation through mutation testing.
+#### ii3: AUSTIN: 
+A search based tool to generate test data.
 
-#### ii4: Search-based Software Testing: 
-Search-based Software Testing is the use of a meta-heuristic optimizing search technique, such as a GA, to automate or partially automate a testing task, for example the automatic generation of test data.
+#### ii4: CUTE: 
+A concolic tool to generate test data.
 
 iii: Artifacts:
 ---------------
-#### iii1. Motivational statements: 
-Authors of the paper mentioned that search-based techniques had been showm to be a promising approach to tackle many kinds of software engineering tasks, particularly software testing. 
-They claimed that those techniques were not adopted by practitioners because of limitations like efficiency and applicability. So, investigating those techniques was of practical value.
+#### iii1. Motivational statements:
+Little work had been done (at the time of writing that paper) to realize the effectiveness of concolic testing and search based testing with complete real world software applications.  
+Research questions:  
+i) How effective are concolic and search based tools when applied to real world software applications?  
+ii) How long does it take for concolic and search based tools to achieve certain levels of coverage?  
 
-#### iii2. Hypothesis:  
-The efficiency is heavily dependent on many different factors; seeding is one such factor that may strongly influence this efficiency. Even for a testing tool that is already able to achieve high coverage, the use of appropriate seeding strategies can further improve performance.
+#### iii2. Related Work: 
+Authors have mentioned some of the tools based on random testing, concolic testing and search based testing. DART (by Godefroid et al.) , a random testing tool, is  different from CUTE as DART does not attempt to solve constraints involving memory locations.  
+CREST tool is also mentioned by authors. It is a recent open-source successor to CUTE. It has  a more sophisticated, CFG based, path exploration strategy in comparison to CUTE.  
+ET-S (developed by Daimler) uses evolutionary algorithms to achieve various coverage types, including path,branch and data flow coverage.  
+Burnim and Sen  considered different search strategies to explore program paths in concolic testing and evaluated their findings on large open source applications including the Siemens benchmark suite, grep, a search utility based on regular expressions, and vim, a common text editor.  
+Concolic testing has also been used to search for security vulnerabilities in large Microsoft applications as part of the SAGE tool.  
 
-#### iii3: Related Work: 
-The authors discussed few papers on seeding strategies to improve the search. Some of the papers/work they mentioned were: 
-a) angdon and Nordin studied a seeding strategy in order to improve the ability of a classifier/regressor to generalize. 
-b) In the context of testing real-time systems to find worst case execution times, Tlili et al. applied seeding strategies.  
-They also discussed some of the work related to GA. Like, 
-a) Miraz et al. created the initial population by selecting the best individuals out of a larger pool of randomly generated individuals. 
+#### iii3: Patterns:
+ While comparing two approaches, one of the best practices to be followed is the comparison should be fair.  
+Authors have given the importance to that and mentioned how they have tried to avoid any threats to validity of their findings. To address internal validity threats to the experiments, they have used default settings and if not possible, then reasonable values have been used.To address external validity threats, the authors have used a variety of programming styles and sources.  
 
-#### iii4. Future Work:  
-Authors considered several seeding strategies, and applied them to the context of testing object oriented code in terms of the EVOSUITE tool. 
-Authors mentioned that further seeding strategies are possible, and these as well as investigations of how individual seeding strategies interact will be part of their future work. 
+#### iii4. Results: 
+The results show that there are many challenges remaining in making automatic test data generation tools robust and of a standard that could be considered ‘industrial strength’.   
+This is because with the exception of one of the test subjects chosen, neither tool managed to generate test data for over 50% of the branches in each application’s code.   
+Two main challenges pointed by authors are -  the tools need to be able to prevent or recover from segmentation faults, so that they may continue the test data generation process to any effect. Secondly, test data generation tools need to become much more heterogeneous in nature.   
 
 iv: Improvements:
 -------------
-Though it is a very well written paper, I think below points could be area of improvement.
+Though its a very well written papers, I think below points could be area of improvement.
 
 #### iv1: 
-In this paper, the length of test suite generated is given secondary priority with prime focus on coverage. But, it could have been better if they could have run the experiments with equal focus on coverage as well as length. Those results would have given better understanding of feasibility and usability of the test suites.
+Authors have not given the reason behind choosing CUTE or AUSTIN instead of other concolic tools or search based tools. Like checking effectiveness of concolic testing could be tested with CREST instead of CUTE which could have given better results.  
 
 #### iv2: 
-Authors mentioned that it is well known that testing alone cannot prove the absence of defects. Also, randomized algorithms are affected by chance. So, to cope with this problem, they ran each experiment 30 times, and followed rigorous statistical procedures to evaluate their results. 
-But they have not mentioned the reason coming up with 30. It could have been better if they would have explained the reason behind choosing the count as 30 for which the experiments need to be repeated.
+There were number of functions which were not tested because of compilation error. Those things could have impacted the results observed. The authors could have given the reason of choosing the particular real world applications or could have argued that those errors are really not because of the application.  
 
 #### iv3:
-The paper claims that seeding strategies help EVOSUITE to achieve higher code coverage. But, it is possible that there exists parameter combinations for seeding strategies and search budget, that can perform better. So different parameter settings should be tried.
+The authors selected random 12 functions from the 4 test objects  to test the effectiveness of two approaches. It could have been better if apart from random 12 functions, they could have tested on some known functions on which both approaches were expected to perform better. It would have given additional evidences of the effectiveness of search based and concolic testing to generate input test data.  
 
 ##### Connection to the initital paper(s):
-This paper is on seeding strategies and the initial paper too has mentioned one if the seeding strategy named "Dynamically Mined Value".
+The paper has discussed two techniques to generate test data - concolic testing and search based testing. The paper1”Automated Web Application Testing Using Search Based Software Engineering”  also discussed search based testing. Even both papers discussed AVM(Alternating Variable Method).  
+Paper 2 ”Dynamic test input generation for web applications” discussed concolic testing which is one of the technique whose effectiveness was measured in this paper.   
+
