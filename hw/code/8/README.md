@@ -1,2 +1,1 @@
-
-
+- Making Use of gadgets file in order to Code up DTLZ_7 model.
