@@ -15,7 +15,7 @@ class Model(object):
                 break
 
     def __init__(i):
-        i.dec = [0, 0, 0]  # [0][0] has dec name (example x1), [0][1] it's low, [0][2] it's high
+        i.dec = [[0, 0, 0]]  # [0][0] has dec name (example x1), [0][1] it's low, [0][2] it's high
 
     def getEnergy(i):
         return i.normalize(sum(i.objs()))
@@ -23,7 +23,7 @@ class Model(object):
     def getDenormalizedEnergy(i):
         return sum(i.objs())
 
-    def getobj(i):
+    def objs(i):
         return []
 
     def ok(i):
@@ -122,7 +122,6 @@ class Osyczka2(Model):
         i.dec.append([-2, 1, 5])
         i.dec.append([-1, 0, 10])
         i.random()
-#         i.Emin, i.Emax = i.getMinMax()
 
     # Check input constraints
     def okx1x2(i):
@@ -199,7 +198,6 @@ class Golinski (Model):
         i.dec.append([-1, 5.0, 5.5])
 
         i.random()
-#         i.Emin, i.Emax = i.getMinMax()
  
     def normalize(i, e):
  
@@ -265,6 +263,40 @@ class Golinski (Model):
         
         return True
 
+class DTLZ_7(Model):
+    n = 10 # Number of decisions
+    M = 2  # Number of obectives
+
+    def __init__(i):
+        i.dec =[[-1, 0 ,1]]
+        for x in range((i.n - 1)):
+            i.dec.append([-1, 0, 1])
+        i.random()
+         
+    def h1(i,g):
+        summation = 0.0
+        for j in range(i.M - 1):
+            f_i = i.dec[j][0]
+            summation += f_i() / (1 + g) * (1 + math.sin(3 * math.pi * f_i()))
+        return (i.M - summation)
+
+    def f1(i):
+        return i.dec[0][0]
+
+    def f2(i):
+        g = 1 + 9.0/len(i.dec) * sum(x[0] for x in i.dec)
+        summation = 0.0
+        for j in range(i.M - 1):
+            f_i = i.dec[j][0]
+            summation += (f_i / (1 + g)) * (1 + math.sin(3 * math.pi * f_i))
+        h =  (i.M - summation)
+        b = (1 + g) * h
+        return b
+
+    def objs(i):
+        return [i.f1(), i.f2()]
+
+        
 def neighbor(s, c, model):
     sn = deepcopy(s)
     while True:
@@ -274,7 +306,11 @@ def neighbor(s, c, model):
     return sn
 
 def P(old, new, t):
-        return math.exp((old - new) / float(t))
+    #print ('math exp ',(old-new)/float(t))
+    try:
+       return math.exp((old - new) / float(t))
+    except:
+       return 1 
 
 def sa(model):
 #     x0 = r.randint(-100000, 100000)
@@ -324,9 +360,6 @@ def sa(model):
     
         if k % 50 == 0: 
             print ('') 
-#            print ('len = ',len(era_cur))
-#            print (era_prev)
-#            print (era_cur)
             if different(era_prev,era_cur):
                era_prev = deepcopy(era_cur)
                era_cur = []
@@ -507,8 +540,6 @@ def extrapolate(frontier, one, i):
         for j in range(len(new.dec)):
             if r.random() < cf or j == c:
                 new.dec[j][0] = two.dec[j][0] + f * (three.dec[j][0] - four.dec[j][0])
-#                 if not ((new.dec[j][0] >= new.dec[j][1]) and (new.dec[j][0] <= new.dec[j][2])):
-#                     break
         
         if new.decOk() and new.ok():
             break
@@ -521,7 +552,6 @@ def update(frontier, i_best, e_best):
     global era_cur, era_prev
     total = 0.0
     n = 0
-#     for i, x in enumerate(frontier):
     for i in range(len(frontier)):
         x = frontier[i]
         e = x.getDenormalizedEnergy()
@@ -572,27 +602,22 @@ if __name__ == '__main__':
 if __name__ == '__main__':
     #for model in [Schaffer, Osyczka2, Kursawe, Golinski]:
         #for optimizer in [sa, mws, de]:
-  for model in [Schaffer, Osyczka2, Kursawe, Golinski]:
+  for model in [Osyczka2, DTLZ_7, Schaffer, Kursawe, Golinski]:
     rdiv = [['sa'],['mws'],['de']]
     for _ in range(20):
-        #for optimizer in [sa, mws, de]:
         for optimizer in [sa, mws, de]:
             if optimizer.__name__ == 'sa':
+                k = 0
                 name = 'Simulated Annealing'
-                en = optimizer(model).getDenormalizedEnergy()
-                rdiv[0].append(en)
             if optimizer.__name__ == 'mws':
+                k = 1
                 name = 'MaxWalkSAT'
-                en = optimizer(model).getDenormalizedEnergy()
-                rdiv[1].append(en)
-                #optimizer(model)
             if optimizer.__name__ == 'de':
+                k = 2
                 name = 'Differential Evolution'
-                en = optimizer(model).getDenormalizedEnergy()
-                rdiv[2].append(en)
-                #optimizer(model)
+
             print("**", name, " on " , model.__name__, "**")
-            #optimizer(model)
-   
+            en = optimizer(model).getDenormalizedEnergy()
+            rdiv[k].append(en)
     rdivDemo(rdiv)
     print ("\n\n")
