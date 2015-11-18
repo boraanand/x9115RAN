@@ -328,17 +328,16 @@ def sa(model):
 #            print (era_prev)
 #            print (era_cur)
             if different(era_prev,era_cur):
-               print (True)
                era_prev = deepcopy(era_cur)
                era_cur = []
             else:
-               print ('Early Termination')
-               print ('\nBest Denormalized Energy = ', sb.getDenormalizedEnergy())
- 	       return 
-        
+               print ('Early Termination in era : ',k/50)
+               break;
+ 	         
     print ('\nBest Denormalized Energy = ', sb.getDenormalizedEnergy())
     print ('At x = ' , zip(*sb.dec)[0])
     print ('\n\n')
+    return sb
 
 p = 0.5
 steps = 10
@@ -387,28 +386,28 @@ def changeCToMaximizeEnergy(c, s, e_old):
 
 def mws(model):
     global evals
+    isFlag = 0
     s_best = model()
     e_best = s_best.getDenormalizedEnergy()
     printCtr = 0
-
+    era_prev = [-1, -1]
+    era_cur = []
+    #era_cur.append(e_best)
     for _ in range(retries) :
         s = deepcopy(s_best)
         s.random()
         e = s.getDenormalizedEnergy()        
+        #era_cur.append(e) #Store energy in current era list.
         for _ in range(maxchanges) :
             evals += 1
             if printCtr == 0 or printCtr % 50 == 0: 
                 print ("%e" % e_best, end=' ') 
     
-#             if e > threshold:
-# #                 return x, e
-#                 break
-            
-            # c = random part of solution 
             c = r.randint(0, len(s.dec) - 1)
             if p < float((r.randint(0, 100)) / 100):
                 # change a random setting in c
                 s_new, e_new = changeRandomInC(c, s, e)
+                era_cur.append(e_new) #Store energy in current era list.
                 if s_best.ltOrGt(e_new, e):
                     e = e_new
                     s = deepcopy(s_new)
@@ -418,6 +417,7 @@ def mws(model):
             else:
                 # change setting in c that maximizes score(solution)
                 s_new, e_new = changeCToMaximizeEnergy(c, s, e)
+                era_cur.append(e_new) #Store energy in current era list.
                 if s_best.ltOrGt(e_new, e):
                     e = e_new
                     s = deepcopy(s_new)
@@ -428,15 +428,25 @@ def mws(model):
             printCtr += 1
             if printCtr % 50 == 0: 
                 print ('') 
-                
+                if different(era_prev,era_cur):
+                   era_prev = deepcopy(era_cur)
+                   era_cur = []
+                else:
+               	   print ('Early Termination in era : ',printCtr/50)
+                   isFlag = 1
+                   break
+            if isFlag:
+                break;     
             if s_best.ltOrGt(e, e_best):
                 e_best = e
                 s_best = deepcopy(s)
+            
 
     print ('\nBest Denormalized Energy = ', s_best.getDenormalizedEnergy())
     print ('At x = ' , zip(*s_best.dec)[0])
     print ('Evals = ' , evals)            
     print ('\n\n')
+    return s_best
 
 """Global variables for differential evolution algorithm"""
 f = 0.75
@@ -445,6 +455,8 @@ np = 50
 cf = 0.3
 epsilon = 0.01
 # printCtr = 0
+era_cur = []
+era_prev = [-1, -1]
 
 """Generate np candiate soloutions"""   
 def getCandiates(model):
@@ -506,6 +518,7 @@ def extrapolate(frontier, one, i):
     return one
 
 def update(frontier, i_best, e_best):
+    global era_cur, era_prev
     total = 0.0
     n = 0
 #     for i, x in enumerate(frontier):
@@ -513,6 +526,7 @@ def update(frontier, i_best, e_best):
         x = frontier[i]
         e = x.getDenormalizedEnergy()
         new = extrapolate(frontier, x, i)
+        era_cur.append(new.getDenormalizedEnergy())
         if new.ltOrGt(new.getDenormalizedEnergy(), e_best):
             e_best = new.getDenormalizedEnergy()
             i_best = i
@@ -529,16 +543,25 @@ def update(frontier, i_best, e_best):
 
 
 def de(model):
+    global era_cur, era_prev
     i_best, e_best, frontier = getCandiates(model)
-    for _ in range(max):
+    for j in range(max):
         print ("%e" % e_best, end=' ') 
         total, n, i_best, e_best = update(frontier, i_best, e_best)
 #         if total / n > (1 - epsilon):            
 #             break
         print (' ')
+        if different(era_prev,era_cur):
+            era_prev = deepcopy(era_cur)
+            era_cur = []
+        else:
+       	    print ('Early Termination in era : ',j+1)
+            break
+
     print ('\nBest Denormalized Energy = ', e_best)
     print ('At x = ' , frontier[i_best])
     print ('\n\n')
+    return frontier[i_best]
     
 """
 if __name__ == '__main__':
@@ -547,16 +570,29 @@ if __name__ == '__main__':
   print (different(lst1,lst2))
 """
 if __name__ == '__main__':
-    for model in [Schaffer, Osyczka2, Kursawe, Golinski]:
+    #for model in [Schaffer, Osyczka2, Kursawe, Golinski]:
         #for optimizer in [sa, mws, de]:
-    #for model in [Schaffer]:
+  for model in [Schaffer, Osyczka2, Kursawe, Golinski]:
+    rdiv = [['sa'],['mws'],['de']]
+    for _ in range(20):
         #for optimizer in [sa, mws, de]:
-        for optimizer in [sa]:
+        for optimizer in [sa, mws, de]:
             if optimizer.__name__ == 'sa':
                 name = 'Simulated Annealing'
+                en = optimizer(model).getDenormalizedEnergy()
+                rdiv[0].append(en)
             if optimizer.__name__ == 'mws':
                 name = 'MaxWalkSAT'
+                en = optimizer(model).getDenormalizedEnergy()
+                rdiv[1].append(en)
+                #optimizer(model)
             if optimizer.__name__ == 'de':
                 name = 'Differential Evolution'
+                en = optimizer(model).getDenormalizedEnergy()
+                rdiv[2].append(en)
+                #optimizer(model)
             print("**", name, " on " , model.__name__, "**")
-            optimizer(model)
+            #optimizer(model)
+   
+    rdivDemo(rdiv)
+    print ("\n\n")
