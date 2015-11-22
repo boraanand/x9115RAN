@@ -64,7 +64,7 @@ def ga(model):
         elif e_new < e_mama:
             frontier[mama_pos] = new_can
         """
-        
+
     print("\n Best Denormalized Energy:" + str(e_best) )
 
 
