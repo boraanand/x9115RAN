@@ -126,11 +126,43 @@ class DTLZ_1(Model):
 
 
 class DTLZ_3(Model):
-    def __init__(self, m, n):
-        self.m = m
+    def __init__(self, n=10, m=2):
+        """
+            Args:
+                n = number of decisions
+                m = number of objectives
+        """
         self.n = n
-        self.objs = []
-        self.decs = []
+        self.m = m       
+        self.decs = [Decision(name=d, low=0, high=1) for d in range(self.n)]
+        self.objs = self.get_objs()
+
+    def get_objs(self):
+        # first m-1 objectives are same as respective decisions
+        objectives = []
+
+        def g(can):
+            g_part_1 = 0
+            for x in can.decs:
+                g_part_1 += (x - 0.5)**2 - math.cos(20*math.pi*(x - 0.5)) 
+            g = 100 * (len(can.decs) + g_part_1)
+            return g
+
+        for j in range(self.m - 1):
+            def f(can):
+                f_ = 0.5 * (1 + g(can))
+                for k in range(self.m - (j+1)):
+                    f_ *= can.decs[k]
+                f_ *= 1 - can.decs[self.m - (j+1)]
+                return f_
+            objectives.append(Objective(name = j, function = f))
+
+        def fm(can):
+            return 0.5 *  (1 - can.decs[0]) * (1.0 + g(can))
+
+        objectives.append(Objective(name = self.m-1, function = fm))
+        return objectives[:]
+
 
 class DTLZ_5(Model):
     def __init__(self, m, n):
