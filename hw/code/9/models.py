@@ -2,6 +2,7 @@ from copy import deepcopy
 import random as r
 from util import *
 import math
+from math import cos, sin, pi
 
 class Decision():
     """ A wrapper class on decisions """
@@ -104,11 +105,17 @@ class DTLZ_1(Model):
         def g(can):
             g_part_1 = 0
             for x in can.decs:
-                g_part_1 += (x - 0.5)**2 - math.cos(20*math.pi*(x - 0.5)) 
+                g_part_1 += (x - 0.5)**2 - cos(20*pi*(x - 0.5)) 
             g = 100 * (len(can.decs) + g_part_1)
             return g
 
-        for j in range(self.m - 1):
+        def f0(can):
+            f_ = 0.5 * (1 + g(can))
+            for i in range(self.m - 1): f_ *= can[i] 
+            return f_
+        objectives.append(Objective(name = 0, function = f))
+
+        for j in range(1, self.m - 1):
             def f(can):
                 f_ = 0.5 * (1 + g(can))
                 for k in range(self.m - (j+1)):
@@ -119,8 +126,8 @@ class DTLZ_1(Model):
 
         def fm(can):
             return 0.5 *  (1 - can.decs[0]) * (1.0 + g(can))
-
         objectives.append(Objective(name = self.m-1, function = fm))
+        
         return objectives[:]
 
 
@@ -144,24 +151,42 @@ class DTLZ_3(Model):
         def g(can):
             g_part_1 = 0
             for x in can.decs:
-                g_part_1 += (x - 0.5)**2 - math.cos(20*math.pi*(x - 0.5)) 
+                g_part_1 += (x - 0.5)**2 - cos(20*pi*(x - 0.5)) 
             g = 100 * (len(can.decs) + g_part_1)
             return g
 
-        for j in range(self.m - 1):
+
+        def f0(can):
+            f_ = 0.5 * (1 + g(can))
+            for i in range(self.m - 1): f_ *= cos(can[i] * pi * 0.5)
+            return f_
+        objectives.append(Objective(name = 0, function = f0))
+
+        for j in range(1, self.m - 1):
             def f(can):
                 f_ = 0.5 * (1 + g(can))
                 for k in range(self.m - (j+1)):
-                    f_ *= can.decs[k]
-                f_ *= 1 - can.decs[self.m - (j+1)]
+                    f_ *= cos(can.decs[k] * pi * 0.5)
+                f_ *= sin( can.decs[self.m - (j+1)] * 0.5 )
                 return f_
             objectives.append(Objective(name = j, function = f))
 
         def fm(can):
-            return 0.5 *  (1 - can.decs[0]) * (1.0 + g(can))
-
+            return sin(can[0] * pi * 0.5) * (1.0 + g(can))
         objectives.append(Objective(name = self.m-1, function = fm))
+        
         return objectives[:]
+
+    def __repr__(self):
+        import inspect
+        out = 'number of decisions: {}\n'.format(self.n)
+        out += 'number of objectives: {}\n'.format(self.m)
+        out += '#' * 30 
+        out += '\n'
+        for i in range(self.m):
+            out += str(self.objs[i].function) + '\n'
+        return out
+
 
 
 class DTLZ_5(Model):
@@ -170,6 +195,38 @@ class DTLZ_5(Model):
         self.n = n
         self.objs = []
         self.decs = []
+    def get_objs(self):
+        def g(can):
+            g = 0
+            for i in range(self.m):
+                g += (can.decs[i] - 0.5)**2
+            return g
+
+        def theta(can, i):
+            x = pi/ (4 * (1 + g(can))) * (1 + 2 * g(can) * can.decs[i])
+            return x
+
+        def f0(can):
+            f_ = (1 + g(can))
+            for x in range(self.m - 1):
+                f_ *= cos( theta(can, x) * pi * 0.5)
+
+        objectives.append(Objective(name = 0, function = f0))
+
+        for j in range(1, self.m - 1):
+            def f(can):
+                f_ = 0.5 * (1 + g(can))
+                for k in range(self.m - (j+1)):
+                    f_ *= cos(theta(can, k) * pi * 0.5)
+                f_ *= sin( theta(can, self.m - (j+1)) * 0.5 )
+                return f_
+            objectives.append(Objective(name = j, function = f))
+
+        def fm(can):
+            return sin(theta(can, 0) * pi * 0.5) * (1.0 + g(can))
+
+        objectives.append(Objective(name = self.m-1, function = fm))
+
 
 class DTLZ_7(Model):
     def __init__(i, n=10, m=2):
@@ -199,9 +256,13 @@ class DTLZ_7(Model):
             summation = 0.0
             for j in range(i.m - 1):
                 f_i = can.decs[j]
-                summation += (f_i / (1 + g(can))) * (1 + math.sin(3 * math.pi * f_i))
+                summation += (f_i / (1 + g(can))) * (1 + sin(3 * pi * f_i))
             h = (i.m - summation)
             return (1 + g(can)) * h
 
         objectives.append(Objective(name = i.m-1, function = fm))
         return objectives[:]
+
+if __name__ == '__main__':
+    a = DTLZ_3(5, 4)
+    print(a)
