@@ -111,9 +111,10 @@ class DTLZ_1(Model):
 
         def f0(can):
             f_ = 0.5 * (1 + g(can))
-            for i in range(self.m - 1): f_ *= can[i] 
+            for i in range(self.m - 1): f_ *= can.decs[i] 
             return f_
-        objectives.append(Objective(name = 0, function = f))
+
+        objectives.append(Objective(name = 0, function = f0))
 
         for j in range(1, self.m - 1):
             def f(can):
@@ -126,9 +127,17 @@ class DTLZ_1(Model):
 
         def fm(can):
             return 0.5 *  (1 - can.decs[0]) * (1.0 + g(can))
-        objectives.append(Objective(name = self.m-1, function = fm))
         
+        objectives.append(Objective(name = self.m-1, function = fm))   
         return objectives[:]
+
+    def __repr__(self):
+        s = ""
+        s += "\nModel: {}".format(self.__class__.__name__)
+        s += "\nArgs:"
+        s += "\n\tnumber of decisions: {}".format(self.n)
+        s += "\n\tnumber of objectives: {}".format(self.m)
+        return s
 
 
 
@@ -158,7 +167,7 @@ class DTLZ_3(Model):
 
         def f0(can):
             f_ = 0.5 * (1 + g(can))
-            for i in range(self.m - 1): f_ *= cos(can[i] * pi * 0.5)
+            for i in range(self.m - 1): f_ *= cos(can.decs[i] * pi * 0.5)
             return f_
         objectives.append(Objective(name = 0, function = f0))
 
@@ -172,35 +181,41 @@ class DTLZ_3(Model):
             objectives.append(Objective(name = j, function = f))
 
         def fm(can):
-            return sin(can[0] * pi * 0.5) * (1.0 + g(can))
+            return sin(can.decs[0] * pi * 0.5) * (1.0 + g(can))
         objectives.append(Objective(name = self.m-1, function = fm))
         
         return objectives[:]
 
     def __repr__(self):
-        import inspect
-        out = 'number of decisions: {}\n'.format(self.n)
-        out += 'number of objectives: {}\n'.format(self.m)
-        out += '#' * 30 
-        out += '\n'
-        for i in range(self.m):
-            out += str(self.objs[i].function) + '\n'
-        return out
+        s = ""
+        s += "\nModel: {}".format(self.__class__.__name__)
+        s += "\nArgs:"
+        s += "\n\tnumber of decisions: {}".format(self.n)
+        s += "\n\tnumber of objectives: {}".format(self.m)
+        return s
 
 
 
 class DTLZ_5(Model):
-    def __init__(self, m, n):
-        self.m = m
+    def __init__(self, n=10, m=2):
+        """
+            Args:
+                n = number of decisions
+                m = number of objectives
+        """
         self.n = n
-        self.objs = []
-        self.decs = []
+        self.m = m       
+        self.decs = [Decision(name=d, low=0, high=1) for d in range(self.n)]
+        self.objs = self.get_objs()
+
     def get_objs(self):
+        objectives = []
+        
         def g(can):
-            g = 0
+            g_ = 0
             for i in range(self.m):
-                g += (can.decs[i] - 0.5)**2
-            return g
+                g_ += (can.decs[i] - 0.5)**2
+            return g_
 
         def theta(can, i):
             x = pi/ (4 * (1 + g(can))) * (1 + 2 * g(can) * can.decs[i])
@@ -210,6 +225,7 @@ class DTLZ_5(Model):
             f_ = (1 + g(can))
             for x in range(self.m - 1):
                 f_ *= cos( theta(can, x) * pi * 0.5)
+            return f_
 
         objectives.append(Objective(name = 0, function = f0))
 
@@ -226,6 +242,16 @@ class DTLZ_5(Model):
             return sin(theta(can, 0) * pi * 0.5) * (1.0 + g(can))
 
         objectives.append(Objective(name = self.m-1, function = fm))
+        print(objectives)
+        return objectives[:]
+
+    def __repr__(self):
+        s = ""
+        s += "\nModel: {}".format(self.__class__.__name__)
+        s += "\nArgs:"
+        s += "\n\tnumber of decisions: {}".format(self.n)
+        s += "\n\tnumber of objectives: {}".format(self.m)
+        return s
 
 
 class DTLZ_7(Model):
@@ -262,6 +288,14 @@ class DTLZ_7(Model):
 
         objectives.append(Objective(name = i.m-1, function = fm))
         return objectives[:]
+    
+    def __repr__(self):
+        s = ""
+        s += "\nModel: {}".format(self.__class__.__name__)
+        s += "\nArgs:"
+        s += "\n\tnumber of decisions: {}".format(self.n)
+        s += "\n\tnumber of objectives: {}".format(self.m)
+        return s
 
 if __name__ == '__main__':
     a = DTLZ_3(5, 4)
