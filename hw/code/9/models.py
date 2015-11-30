@@ -45,6 +45,9 @@ class Model(object):
     def ok(i, can):
         return True
 
+    def eval(i, can):
+        return [obj.function(can) for obj in i.objs]
+
     def energy(i, can):
         can.objs_score = [obj.function(can) for obj in i.objs]
         return sum(can.objs_score)
@@ -218,7 +221,7 @@ class DTLZ_5(Model):
             return g_
 
         def theta(can, i):
-            x = pi/ (4 * (1 + g(can))) * (1 + 2 * g(can) * can.decs[i])
+            x = pi * (1 + 2 * g(can) * can.decs[i]) / (4 * (1 + g(can)))
             return x
 
         def f0(can):
@@ -242,7 +245,6 @@ class DTLZ_5(Model):
             return sin(theta(can, 0) * pi * 0.5) * (1.0 + g(can))
 
         objectives.append(Objective(name = self.m-1, function = fm))
-        print(objectives)
         return objectives[:]
 
     def __repr__(self):
@@ -255,7 +257,7 @@ class DTLZ_5(Model):
 
 
 class DTLZ_7(Model):
-    def __init__(i, n=10, m=2):
+    def __init__(i, n=10, m=3):
         """
             Args:
                 n = number of decisions
