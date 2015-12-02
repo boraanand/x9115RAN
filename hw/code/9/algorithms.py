@@ -130,7 +130,7 @@ class ga():
             return new_can
 
         pos = r.randint(0, len(new_can.decs) - 1)
-        new_can.decs[pos] = r.randint(model.decs[pos].low, model.decs[pos].high)
+        new_can.decs[pos] = r.uniform(model.decs[pos].low, model.decs[pos].high)
         return new_can
 
     @staticmethod
