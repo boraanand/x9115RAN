@@ -1,7 +1,6 @@
 from __future__ import print_function, division
 from models import *
 from algorithms import *
-import plotly
 
 if __name__ == '__main__':
    

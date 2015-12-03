@@ -4,11 +4,10 @@ import random as r
 from copy import deepcopy
 import sys
 from math import sqrt, exp, sin
-from pandas import DataFrame
-from ggplot import *
 import time
 from sk import *
 import matplotlib.pyplot as plt
+plt.ion()
 from mpl_toolkits.mplot3d import Axes3D
 
 class ga():
@@ -80,7 +79,18 @@ class ga():
         # TODO: Is the final population the final frontier??
         epoch_time = int(time.time())
         final_frontier = [ model.eval(can) for can in population ]
-
+        if model.m == 3:
+            # Plot results
+            f1 = [x[0] for x in final_frontier]
+            f2 = [x[1] for x in final_frontier]
+            f3 = [x[2] for x in final_frontier]
+            fig = plt.figure()
+            ax = fig.add_subplot(111, projection='3d')
+            ax.scatter(f1, f2, f3)
+            ax.set_xlabel('f1')
+            ax.set_ylabel('f2')
+            ax.set_zlabel('f3')
+            plt.show()
         print("\nBest Denormalized Energy:" + str(e_best) )
 
     @staticmethod
