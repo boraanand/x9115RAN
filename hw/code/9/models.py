@@ -66,7 +66,31 @@ class Model(object):
             if status:
                 return one
 
-    def dominates(i, can_1, can_2, better=lt):
+    @staticmethod
+    def exp_loss(x, y, n, better):
+        loss = (x - y) if better == lt else (y - x)
+        try:
+            result = math.exp(loss / n)
+        except:
+            result = 10000000
+        return result
+    
+    @staticmethod
+    def total_loss(x, y, better):
+        n = len(x)
+        losses = [ Model.exp_loss(xi, yi ,n, better) for (xi, yi) in zip(x, y) ]
+        return sum(losses) / n
+
+    def cdom(i, can_1, can_2, better=lt):
+       "x dominates y if it losses least"
+       can_1.objs_score = [obj.function(can_1) for obj in i.objs]
+       can_2.objs_score = [obj.function(can_2) for obj in i.objs]  
+       x, y = can_1.objs_score, can_2.objs_score
+
+       return True if Model.total_loss(x, y, better) < Model.total_loss(y, x, better) else False
+
+
+    def bdom(i, can_1, can_2, better=lt):
         """
         Static method to check if one candidate dominates the other.
         :param can_1: List of points A
