@@ -11,6 +11,69 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 import multiprocessing as mp
 
+class de():
+    def __init__(self):
+        self.settings = O(
+            f = 0.75,
+            max = 20,
+            np = 50,
+            cf = 0.3,
+            epsilon = 0.01)
+        
+    def optimize(self, model):
+        population = [model.generate() for _ in range(self.settings.np)]
+            
+        frontier = []
+        
+        for can_1 in population:
+            count = 1  # Number of candidates that can_1 dominates
+            for can_2 in population:
+                if model.cdom(can_1, can_2):
+                    count += 1
+            frontier.append((can_1, count))
+        
+        frontier = sorted(frontier, key = lambda (can, score): score)
+        frontier = [ can for can, score in frontier]
+
+        for _ in range(self.settings.max):
+            self.update(frontier, model)
+        
+        for can in frontier: print(can.decs)
+    
+    def update(self, frontier, model):
+        for i, can in enumerate(frontier):
+            new = self.extrapolate(frontier, model, can)
+            if model.cdom(new, can):
+                frontier[i] = new
+
+        
+    @staticmethod
+    def threeOthers(frontier):
+        two, three, four = r.sample(frontier, 3)
+                
+        return two, three, four
+
+    def extrapolate(self, frontier, model, one):
+        new = one.clone()
+    
+        for _ in range(5):
+            two, three, four = de.threeOthers(frontier)
+            c = r.randint(0, len(new.decs) - 1)
+                    
+            for j in range(len(new.decs)):
+                if r.random() < self.settings.cf or j == c:
+                    new.decs[j] = two.decs[j] + self.settings.f * (three.decs[j] - four.decs[j])
+            
+            if model.ok(new):
+                break
+            
+        if model.ok(new):
+            return new
+        
+        return one
+       
+    
+
 class ga():
     def __init__(self):
         self.settings = O(
