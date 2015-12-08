@@ -30,7 +30,7 @@ The model for which the comparison was done is :
 
 ##II. Implementation:
 --------------------
-We implemented DE, SA and MaxwalkSat
+We implemented DE, SA and MaxwalkSat to perform optimization on DTLZ7 model
 
 DE: Pseudo code
 ```
