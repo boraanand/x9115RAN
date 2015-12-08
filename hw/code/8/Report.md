@@ -17,9 +17,9 @@ Keywords: DE, Simualted Anealing, MWS, Type1, Type2, Type3
 ##I. Introduction:
 -------------------
 There are two types of comparisons which are used in optimization algorithms and another type of comparison used to compare and decide which one is better among them for a given model.
-For the paper, we have used DTLZ7 model to compare three different optimzation algorithm - DE, SA, MWS.  
-**Simulated Annealing** is an optimzation algorithm which uses an probablistic technique to find a good solution(approximate global optimum) for a given model (or a function).  
-**Differential evolution** is a stochastic, population-based optimization algorithm which optimzes a problem by iteratively trying to improve candidate solution with regard to given measure of quality.  
+For the paper, we have used DTLZ7 model to compare three different optimization algorithm - DE, SA, MWS.  
+**Simulated Annealing** is an optimization algorithm which uses an probablistic technique to find a good solution(approximate global optimum) for a given model (or a function).  
+**Differential evolution** is a stochastic, population-based optimization algorithm which optimizes a problem by iteratively trying to improve candidate solution with regard to given measure of quality.  
 **MaxWalkSat** is a non-parametric stochastic method for sampling the landscape of the local region.
 All these three uses different apporach to optimize a problem. Now, whicle implementing the above algorithms and comparing them below three types of comparisons are used :  
 **Type1**. Between candidate pairs: For deciding if candidate "X" is better than candidate "Y".  
