@@ -99,7 +99,7 @@ The experiment was repeated 20 times, ie, each algorithm was run 20 times to opt
 
 ##III. Results
 -----------------------------
-Below results were seen:
+Below are the results which were seen on running DE,SA, MWS algorithms 20 times on DTLZ7 model:
 
 rank ,         name ,    med   ,  iqr  
 ----------------------------------------------------  
@@ -110,4 +110,17 @@ rank ,         name ,    med   ,  iqr
 MWS gave the best results in our experiment.
 Please see the 8.log file present in the repository for detailed output.
 
+##IV CONCLUSIONS
+------------------------------
+MWS is the best optimzer for optimzing DTLZ problems with 2 objectives and 10 decisions.
+
+##V. THREATS to VALIDITY
+---------------------------------
+**1. Conclusion validity**  
+The experiment was run 20 times to avoid this threat of validity.  
+**2. Dependability**
+The experiments were giving consistent results on every run. So, we are pretty sure that this threat is avoided as well.
+
+#VI. FUTURE SCOPE
+The comparisions can be done on other variants of DTLZ7 as well as on completely different models like Schaffer etc.
 
