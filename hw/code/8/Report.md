@@ -107,7 +107,8 @@ rank ,      name ,    med   ,  iqr
 2 ,           sa ,    9.09  ,  1.08 (               |     --*--    ), 8.55,  9.12,  9.63  
 2 ,           de ,    9.27  ,  1.20 (               |     ---*--   ), 8.60,  9.31,  9.80  
 ```
-MWS gave the best results in our experiment.
+From the above output, we can see that MWS gave the best results in our experiment.
+For MWS, the rank 1 was given as it had the lowest median of 4.81 while others (DE and SA) were given rank 2 with similar values for median of ~9  
 Please see the [8.log](https://github.com/boraanand/x9115RAN/blob/master/hw/code/8/8.log) for detailed output.
 
 ##IV Conclusions
