@@ -89,3 +89,25 @@ DTLZ7 model:
 
 ![Model](images/dtlz7_model.png)
 
+For comparison between optimizers below four checks were followed and each algorithm was assigned a rank.  
+1. Visualize the data, somehow.
+2. Check if the central tendency of one distribution is better than the other; e.g. compare their median values.
+3. Check the different between the central tendencies is not some small effect.
+4. Check if the distributions are significantly different;
+
+The experiment was repeated 20 times, ie, each algorithm was run 20 times to optimze model DTLZ7 and then their final eras were compared to determine the rank.
+
+##III. Results
+-----------------------------
+Below results were seen:
+
+rank ,         name ,    med   ,  iqr  
+----------------------------------------------------  
+1 ,          mws ,    4.81  ,  0.64 (  -*-          |              ), 4.70,  4.82,  5.34  
+2 ,           sa ,    9.09  ,  1.08 (               |     --*--    ), 8.55,  9.12,  9.63  
+2 ,           de ,    9.27  ,  1.20 (               |     ---*--   ), 8.60,  9.31,  9.80  
+
+MWS gave the best results in our experiment.
+Please see the 8.log file present in the repository for detailed output.
+
+
