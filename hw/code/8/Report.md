@@ -85,6 +85,7 @@ At each iteration, for a candidate solution
 3. If New is better than the old, then replace the old with the new.
 ```
 
-DTLZ7 model:
+DTLZ7 model:  
+
 ![Model](images/dtlz7_model.png)
 
