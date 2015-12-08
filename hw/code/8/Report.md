@@ -86,6 +86,5 @@ At each iteration, for a candidate solution
 ```
 
 DTLZ7 model:
-```
 ![Model](images/dtlz7_model.png)
-```
+
