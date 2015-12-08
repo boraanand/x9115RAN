@@ -112,7 +112,7 @@ Please see the [8.log](https://github.com/boraanand/x9115RAN/blob/master/hw/code
 
 ##IV Conclusions
 ------------------------------
-MWS is the best optimzer for optimzing DTLZ problems with 2 objectives and 10 decisions.
+MWS is the best optimizer for optimizing DTLZ7 problems with 2 objectives and 10 decisions.
 
 ##V. Threats to validity
 ---------------------------------
