@@ -102,8 +102,7 @@ The experiment was repeated 20 times, ie, each algorithm was run 20 times to opt
 -----------------------------
 Below are the results which were seen on running DE,SA, MWS algorithms 20 times on DTLZ7 model:
 
-rank ,         name ,    med   ,  iqr  
-----------------------------------------------------  
+rank ,      name ,    med   ,  iqr  
 1 ,          mws ,    4.81  ,  0.64 (  -*-          |              ), 4.70,  4.82,  5.34  
 2 ,           sa ,    9.09  ,  1.08 (               |     --*--    ), 8.55,  9.12,  9.63  
 2 ,           de ,    9.27  ,  1.20 (               |     ---*--   ), 8.60,  9.31,  9.80  
