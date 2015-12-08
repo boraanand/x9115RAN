@@ -79,8 +79,9 @@ DE: Algorithm
 ```
 Major difference in approach is forming the next era candidates.
 At each iteration, for a candidate solution 
-1. Three random candidate solutions are picked from the frontier, say, X, Y and Z different from the parent
-2. Now for each solution other than X,Y,Z , do uniform crossover and generate a new solution at some probability (called the crossover factor):
+1. Three different random candidate solutions are picked from the frontier, say, X, Y and Z.
+2. Now for each solution other than X,Y,Z , do uniform crossover and generate a new solution 
+at some probability (called the crossover factor):
         New = X + f * (Y - Z)
 3. If New is better than the old, then replace the old with the new.
 ```
