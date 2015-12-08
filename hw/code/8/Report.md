@@ -33,7 +33,7 @@ The model for which the comparison was done is :
 We implemented DE, SA and MaxwalkSat
 
 DE: Pseudo code
-...
+```
 FOR i = 1 to max-tries DO
   solution = random assignment
   FOR j =1 to max-changes DO
@@ -46,10 +46,10 @@ FOR i = 1 to max-tries DO
     ELSE  change setting in c that maximizes score(solution) 
     FI
 RETURN failure, best solution found
-...
+```
 
 SA: Pseudo code
-...
+```
 s := s0; e := E(s)                  // Initial state, energy.
 sb := s; eb := e                    // Initial "best" solution
 k := 0                              // Energy evaluation count.
@@ -73,5 +73,19 @@ WHILE k < kmax and e > emax         // While time remains & not good enough:
   k := k + 1                        //   One more evaluation done    
   if k % 50 == 0: print "\n",sb
 RETURN sb                           // Return the best solution found.
+```
 
+DE: Algorithm
+```
+Major difference in approach is forming the next era candidates.
+At each iteration, for a candidate solution 
+1. Three random candidate solutions are picked from the frontier, say, X, Y and Z different from the parent
+2. Now for each solution other than X,Y,Z , do uniform crossover and generate a new solution at some probability (called the crossover factor):
+        New = X + f * (Y - Z)
+3. If New is better than the old, then replace the old with the new.
+```
 
+DTLZ7 model:
+```
+[Model](images/dtlz7_model.png)
+```
