@@ -1,4 +1,4 @@
-#Report
+# Code 8: Report
 
 Contributors:  
   Anand Bora (abora)  
@@ -121,6 +121,6 @@ The experiment was run 20 times to avoid this threat of validity.
 **2. Dependability**
 The experiments were giving consistent results on every run. So, we are pretty sure that this threat is avoided as well.
 
-#VI. FUTURE SCOPE
+##VI. FUTURE SCOPE
 The comparisions can be done on other variants of DTLZ7 as well as on completely different models like Schaffer etc.
 
