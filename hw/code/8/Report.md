@@ -96,7 +96,7 @@ For comparison between optimizers below four checks were followed and each algor
 3. Check the different between the central tendencies is not some small effect.
 4. Check if the distributions are significantly different;
 
-The experiment was repeated 20 times, ie, each algorithm was run 20 times to optimze model DTLZ7 and then their final eras were compared to determine the rank.
+The experiment was repeated 20 times, ie, each algorithm was run 20 times to optimize model DTLZ7 and then their final eras were compared to determine the rank.
 
 ##III. Results
 -----------------------------
