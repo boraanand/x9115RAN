@@ -1,6 +1,6 @@
 # Code 8: Report
 
-Contributors:  
+**Contributors:**  
   Anand Bora (abora)  
   Nirmesh Khandelwal (nbkhande)  
   Ravi Singh (rpsingh3)  
@@ -101,16 +101,16 @@ The experiment was repeated 20 times, ie, each algorithm was run 20 times to opt
 ##III. Results
 -----------------------------
 Below are the results which were seen on running DE,SA, MWS algorithms 20 times on DTLZ7 model:
-
+```
 rank ,      name ,    med   ,  iqr  
 1 ,          mws ,    4.81  ,  0.64 (  -*-          |              ), 4.70,  4.82,  5.34  
 2 ,           sa ,    9.09  ,  1.08 (               |     --*--    ), 8.55,  9.12,  9.63  
 2 ,           de ,    9.27  ,  1.20 (               |     ---*--   ), 8.60,  9.31,  9.80  
-
+```
 MWS gave the best results in our experiment.
 Please see the 8.log file present in the repository for detailed output.
 
-##IV COonclusions
+##IV Conclusions
 ------------------------------
 MWS is the best optimzer for optimzing DTLZ problems with 2 objectives and 10 decisions.
 
