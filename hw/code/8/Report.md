@@ -211,6 +211,6 @@ The experiment was run 20 times to avoid this threat of validity.
 The experiments were giving consistent results on every run. So, we are pretty sure that this threat is avoided as well.
 
 ##VI. Future Scope
-The comparisions can be done on other variants of DTLZ7 model having more objectives and decisions.  
+The comparisons can be done on other variants of DTLZ7 model having more objectives and decisions.  
 Also, the same experiment can be performed on different models like Schaffer,Kurasawa to know if MWS is really better than DE and SA for other models as well.
 
