@@ -93,19 +93,23 @@ DTLZ7 model:
 
 ![Model](images/dtlz7_model.png)
 
-For comparison between optimizers below four checks were followed and each algorithm was assigned a rank.  
-1. Visualize the data, somehow.
-2. Check if the central tendency of one distribution is better than the other; e.g. compare their median values.
-3. Check the different between the central tendencies is not some small effect.
-4. Check if the distributions are significantly different;
+For comparison between optimizers below four checks were followed and each algorithm was assigned a rank.   
+1. Visualize the data.  
+2. Check if the central tendency of one distribution is better than the other; e.g. compare their median values.  
+3. Check the different between the central tendencies is not some small effect.  
+4. Check if the distributions are significantly different.  
 
-The experiment was repeated 20 times, ie, each algorithm was run 20 times to optimize model DTLZ7 and then their final eras were compared to determine the rank.
+For step3, we used a12 method to determine the effect size.
+The experiment was repeated 20 times, ie, each algorithm was run 20 times to optimize DTLZ7 model and then their final eras were compared to determine the rank.
+
+The final eras for all three optimizers was stored and passed to scottknott, sk.py, to generate chart with rank of each optimizers.
+We used rdiv list to store the final eras and passed it to rdivDemo method.
 
 ##III. Results
 -----------------------------
 Below are the results which were seen on running DE,SA, MWS algorithms 20 times on DTLZ7 model:
 
-###For 1st iteration:
+####For 1st iteration:
 ```
 ** Simulated Annealing  on  DTLZ_7 **
 1.083357e+01 ???+???+?+?.???++.+?+?.?++...+.?..+.???++?+.+...+
@@ -132,7 +136,7 @@ Early Termination in era :  2
 Best Denormalized Energy =  9.59045416053
 At x =  (0.8222111440449, 0.28157240393939736, 0.44300231211948815, 0.14369309636882188, 0.20042172613738768, 0.26507324498365853, 0.829754229873439, 0.15210613296190453, 0.08310504364348209, 0.33914520372323703)
 ```
-###For 10th iteration:
+####For 10th iteration:
 ```
 ** Simulated Annealing  on  DTLZ_7 **
 1.373317e+01 !??++!??++.?+!.++!.++?.?++..+?.+!.??.....+.!?...?
@@ -158,7 +162,7 @@ Early Termination in era :  1
 Best Denormalized Energy =  8.57877319454
 At x =  (0.20463151184537254, 0.21608350621631234, 0.2338517693784029, 0.3505712502524321, 0.07030747054290076, 0.7217898876170029, 0.04360380422039167, 0.05203998752453276, 0.10615308376722077, 0.65121471164947)
 ```
-###For 20th iteration :
+####For 20th iteration :
 ```
 ** Simulated Annealing  on  DTLZ_7 **
 1.193373e+01 ??++.??+!+?+!.?.+??+???.+?.++...+..+.!!..+.!+....
@@ -184,6 +188,7 @@ Early Termination in era :  1
 Best Denormalized Energy =  9.57747416418
 At x =  (0.8914811743615667, 0.54761635204422, 0.4431034178384131, 0.27337493544225866, 0.4181191257974015, 0.21758659124983015, 0.2562384139278675, 0.16244678706770965, 0.31037408033794955, 0.0009924417876221447)
 ```
+#### Rank of DE, MWS and SA optimizers
 ```
 rank ,      name ,    med   ,  iqr  
 1 ,          mws ,    4.81  ,  0.64 (  -*-          |              ), 4.70,  4.82,  5.34  
