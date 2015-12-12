@@ -109,7 +109,7 @@ We used rdiv list to store the final eras and passed it to rdivDemo method.
 -----------------------------
 Below are the results which were seen on running DE,SA, MWS algorithms 20 times on DTLZ7 model:
 
-####For 1st iteration:
+####For 1st iteration(Initial era):
 ```
 ** Simulated Annealing  on  DTLZ_7 **
 1.083357e+01 ???+???+?+?.???++.+?+?.?++...+.?..+.???++?+.+...+
@@ -162,7 +162,7 @@ Early Termination in era :  1
 Best Denormalized Energy =  8.57877319454
 At x =  (0.20463151184537254, 0.21608350621631234, 0.2338517693784029, 0.3505712502524321, 0.07030747054290076, 0.7217898876170029, 0.04360380422039167, 0.05203998752453276, 0.10615308376722077, 0.65121471164947)
 ```
-####For 20th iteration :
+####For 20th iteration (Final era):
 ```
 ** Simulated Annealing  on  DTLZ_7 **
 1.193373e+01 ??++.??+!+?+!.?.+??+???.+?.++...+..+.!!..+.!+....
@@ -201,16 +201,18 @@ Please see the [8.log](https://github.com/boraanand/x9115RAN/blob/master/hw/code
 
 ##IV Conclusions
 ------------------------------
-MWS is the best optimizer for optimizing DTLZ7 problems with 2 objectives and 10 decisions.
+As per the experiment results, MWS is the best optimizer for optimizing DTLZ7 problems with 2 objectives and 10 decisions.
 
 ##V. Threats to validity
 ---------------------------------
-**1. Conclusion validity**  
-The experiment was run 20 times to avoid this threat of validity.  
-**2. Dependability**
-The experiments were giving consistent results on every run. So, we are pretty sure that this threat is avoided as well.
+1. We have used energy as a parameter to decide the performance of optimizers but better parameters like divergence or hypervolume etc could be used to judge their performance.
+2. We have repeated the experiments for 20 times in order to avoid any threats to conclusion validity.
+3. The experiments were giving consistent results on every run so it can be said that the results were dependable.
 
 ##VI. Future Scope
 The comparisons can be done on other variants of DTLZ7 model having more objectives and decisions.  
 Also, the same experiment can be performed on different models like Schaffer,Kurasawa to know if MWS is really better than DE and SA for other models as well.
+Instead of energy parameter, other parameters could be used like divergence and hypervolume to compare the optimizers. We have implemented the same in the later projects (9 and 10).
 
+##VII. References
+Lectures notes from Dr. Tim Menzies [Git hub repo](http://tiny.cc/mase)
